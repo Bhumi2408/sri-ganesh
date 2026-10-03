@@ -23,6 +23,9 @@ export const metadata = {
   title: "Shree Ganesh Polymer | Engineering Polymers – PC, ABS, PBT",
   description:
     "Manufacturer of PC, ABS and PBT engineering polymer granules. 5000+ MT annual capacity, ISO 9001 & 14001 certified, serving 500+ clients across India.",
+    icons:{
+      icon:"/logo.webp"
+    }
 };
 
 export default function RootLayout({ children }) {

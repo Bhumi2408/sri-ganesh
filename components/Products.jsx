@@ -39,12 +39,12 @@ const products = [
 
 export default function Products() {
   return (
-    <section id="products" className="relative bg-[#f6f8fb] py-24 font-label sm:py-28">
+    <section id="products" className="relative overflow-x-clip bg-[#f6f8fb] py-24 font-label sm:py-28">
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
 
       <div className="mx-auto max-w-7xl px-5">
         {/* header */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-end">
           <div>
             <Reveal>
               <div className="flex items-center gap-3">
@@ -67,12 +67,12 @@ export default function Products() {
         </div>
 
         {/* cards */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {products.map((p, i) => (
-            <Reveal key={p.code} i={i} className="h-full">
-              <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.3)]">
+            <Reveal key={p.code} i={i} className="h-full min-w-0">
+              <article className="group isolate flex h-full min-w-0 flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.3)]">
                 {/* image */}
-                <div className="relative m-3 mb-0 aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
+                <div className="relative isolate m-3 mb-0 aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 [transform:translateZ(0)]">
                   <Image
                     src={p.image}
                     alt={`${p.code} granules`}
@@ -91,15 +91,15 @@ export default function Products() {
 
                 {/* body */}
                 <div className="flex flex-1 flex-col p-6 pt-5">
-                  <div className="flex items-center gap-2.5">
-                    <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
-                    <h3 className="text-lg font-semibold text-slate-900">{p.name}</h3>
+                  <div className="flex min-w-0 items-start gap-2.5">
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ background: p.accent }} />
+                    <h3 className="min-w-0 break-words text-lg font-semibold text-slate-900">{p.name}</h3>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">{p.desc}</p>
 
-                  <ul className="mt-5 grid grid-cols-2 gap-x-3 gap-y-2.5">
+                  <ul className="mt-5 grid grid-cols-1 gap-x-3 gap-y-2.5 min-[380px]:grid-cols-2">
                     {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-[13px] leading-snug text-slate-700">
+                      <li key={f} className="flex min-w-0 items-start gap-2 break-words text-[13px] leading-snug text-slate-700">
                         <span
                           className="mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded-full"
                           style={{ background: `${p.accent}1a`, color: p.accent }}
@@ -119,11 +119,11 @@ export default function Products() {
                   <div className="mt-auto pt-6">
                     <a
                       href="#contact"
-                      className="flex items-center justify-between rounded-full border border-slate-200 py-1.5 pl-5 pr-1.5 text-sm font-semibold text-slate-800 transition-colors group-hover:border-transparent group-hover:bg-[#0b1f4d] group-hover:text-white"
+                      className="flex min-w-0 items-center justify-between gap-2 rounded-full border border-slate-200 py-1.5 pl-5 pr-1.5 text-sm font-semibold text-slate-800 transition-colors group-hover:border-transparent group-hover:bg-[#0b1f4d] group-hover:text-white"
                     >
                       Enquire about {p.code}
                       <span
-                        className="grid h-8 w-8 place-items-center rounded-full text-white transition-transform duration-300 group-hover:rotate-45"
+                        className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-white transition-transform duration-300 group-hover:rotate-45"
                         style={{ background: p.accent }}
                       >
                         <ArrowUpRight className="h-4 w-4" />
