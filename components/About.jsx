@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Phone, MapPin, Cog, BadgeCheck, Truck, Clock } from "lucide-react";
 import { Reveal } from "./ui";
@@ -142,15 +143,15 @@ export default function About() {
 
           <Reveal i={2}>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="group inline-flex items-center gap-3 rounded-full bg-[#0b1f4d] py-2 pl-6 pr-2 font-semibold text-white shadow-xl shadow-[#0b1f4d]/25 transition hover:bg-[#123a8f]"
               >
                 Talk to our team
                 <span className="grid h-9 w-9 place-items-center rounded-full bg-[#7cc242] text-[#0b1f4d] transition-transform duration-300 group-hover:rotate-45">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
-              </a>
+              </Link>
               <a href="tel:+919818058610" className="group flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center rounded-full border border-slate-200 text-[#1e5eff] transition group-hover:border-[#1e5eff] group-hover:bg-[#1e5eff] group-hover:text-white">
                   <Phone className="h-4 w-4" />

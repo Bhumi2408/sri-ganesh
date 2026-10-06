@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 // A 3D cloud of glossy polymer pellets that morphs between shapes —
 // one per material — rotates slowly and tilts toward the cursor.
-const COUNT = 900;
+const COUNT = 650;
 
 const SHAPES = {
   // PC — sphere (Fibonacci distribution)
@@ -96,7 +96,7 @@ export default function PolymerCore({ material = "pc", palettes }) {
     let rot = 0;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       w = canvas.offsetWidth;
       h = canvas.offsetHeight;
       canvas.width = w * dpr;

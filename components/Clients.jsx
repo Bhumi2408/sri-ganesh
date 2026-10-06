@@ -10,13 +10,13 @@ function Row({ items, reverse }) {
   return (
     <div className="group relative flex overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
       <div
-        className="flex w-max animate-marquee gap-4 py-2 group-hover:[animation-play-state:paused]"
+        className="flex w-max animate-marquee gap-4 py-2 [will-change:transform] group-hover:[animation-play-state:paused]"
         style={reverse ? { animationDirection: "reverse" } : undefined}
       >
         {doubled.map((c, i) => (
           <span
             key={i}
-            className="glass whitespace-nowrap rounded-xl px-8 py-4 text-lg font-bold uppercase tracking-wide text-gray-400 transition hover:border-brand-green/50 hover:text-white"
+            className="whitespace-nowrap rounded-xl border border-[#e2e8f0] bg-[#ffffff] px-8 py-4 shadow-sm text-lg font-bold uppercase tracking-wide text-gray-400 transition hover:border-brand-green/50 hover:text-white"
           >
             {c}
           </span>

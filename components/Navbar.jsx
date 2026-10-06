@@ -1,15 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { Logo } from "./ui";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#products", label: "Products" },
-  { href: "#facility", label: "Facility" },
-  { href: "#clients", label: "Clients" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/products", label: "Products" },
+  { href: "/facility", label: "Facility" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const PHONE = { label: "+91 98180 58610", href: "tel:+919818058610" };
@@ -18,9 +20,9 @@ const EMAIL = { label: "info@shriganeshpolymer.in", href: "mailto:info@shriganes
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("");
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25 });
+  // trailingSlash export gives "/about/" — compare without it
+  const pathname = (usePathname() || "/").replace(/(.)\/$/, "$1");
+  const active = links.find((l) => l.href === pathname)?.href ?? "";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -29,23 +31,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // highlight the link for the section in view
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => e.isIntersecting && setActive(`#${e.target.id}`));
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    links.forEach((l) => {
-      const el = document.querySelector(l.href);
-      if (el) io.observe(el);
-    });
-    const top = document.querySelector("#top");
-    const onTop = new IntersectionObserver(([e]) => e.isIntersecting && setActive(""), { threshold: 0.5 });
-    if (top) onTop.observe(top);
-    return () => { io.disconnect(); onTop.disconnect(); };
-  }, []);
+  // close the mobile menu after any navigation (incl. back/forward)
+  useEffect(() => setOpen(false), [pathname]);
 
   // close the mobile menu when switching to desktop
   useEffect(() => {
@@ -94,9 +81,9 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:h-[68px]">
-          <a href="#top" aria-label="Shri Ganesh Polymer — home" className="shrink-0">
-            <Logo plain />
-          </a>
+          <Link href="/" aria-label="Shri Ganesh Polymer — home" className="shrink-0">
+            <Logo plain imgClass="h-12 w-auto md:h-[58px]" />
+          </Link>
 
           {/* links */}
           <ul className="hidden items-center gap-1 rounded-full border border-slate-200 bg-slate-50/80 p-1 md:flex">
@@ -104,8 +91,9 @@ export default function Navbar() {
               const on = active === l.href;
               return (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
+                    aria-current={on ? "page" : undefined}
                     className={`relative block rounded-full px-4 py-2 text-sm font-medium transition-colors lg:px-5 ${
                       on ? "text-white" : "text-slate-600 hover:text-slate-900"
                     }`}
@@ -118,7 +106,7 @@ export default function Navbar() {
                       />
                     )}
                     <span className="relative">{l.label}</span>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -133,15 +121,15 @@ export default function Navbar() {
             >
               <Phone className="h-4 w-4" />
             </a>
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="group hidden items-center gap-2 rounded-full bg-brand-green py-1.5 pl-5 pr-1.5 text-sm font-semibold text-ink shadow-lg shadow-brand-green/30 transition hover:shadow-brand-green/50 md:inline-flex"
             >
               Get a Quote
               <span className="grid h-8 w-8 place-items-center rounded-full bg-ink text-brand-green transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
-            </a>
+            </Link>
 
             <button
               onClick={() => setOpen(!open)}
@@ -183,9 +171,10 @@ export default function Navbar() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.05 + i * 0.04 }}
                     >
-                      <a
+                      <Link
                         onClick={() => setOpen(false)}
                         href={l.href}
+                        aria-current={active === l.href ? "page" : undefined}
                         className={`flex items-center justify-between py-3.5 text-lg font-semibold ${
                           active === l.href ? "text-brand-blue" : "text-slate-800"
                         }`}
@@ -195,17 +184,17 @@ export default function Navbar() {
                           {l.label}
                         </span>
                         <ArrowUpRight className="h-4 w-4 text-slate-400" />
-                      </a>
+                      </Link>
                     </motion.li>
                   ))}
                 </ul>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   onClick={() => setOpen(false)}
                   className="mt-4 flex items-center justify-center gap-2 rounded-full bg-brand-green py-3.5 font-semibold text-ink"
                 >
                   Get a Quote <ArrowUpRight className="h-4 w-4" />
-                </a>
+                </Link>
                 <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
                   <a href={PHONE.href} className="flex items-center justify-center gap-2 rounded-full border border-slate-200 py-3 text-slate-700">
                     <Phone className="h-4 w-4" /> Call
@@ -219,7 +208,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
 
-        <motion.div style={{ scaleX: progress }} className="h-0.5 origin-left bg-gradient-to-r from-brand-green to-brand-blue" />
       </div>
     </motion.header>
   );

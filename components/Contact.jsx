@@ -1,119 +1,122 @@
 "use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Mail, Globe, Send, CheckCircle2, MessageCircle } from "lucide-react";
-import { Reveal, SectionTag } from "./ui";
+import Link from "next/link";
+import { MapPin, Phone, Mail, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Reveal } from "./ui";
+import EnquiryForm, { ENQUIRY_EMAIL, WHATSAPP_URL } from "./EnquiryForm";
 
 const details = [
-  { icon: MapPin, label: "Address", value: "E-64 & 51, Mangolpuri Industrial Area, Phase-II, Delhi-110034", href: "https://maps.google.com/?q=E-64+Mangolpuri+Industrial+Area+Phase+II+Delhi+110034" },
-  { icon: Phone, label: "Phone", value: "+91 98180 58610, 98110 90445", href: "tel:+919818058610" },
-  { icon: Mail, label: "Email", value: "info@shriganeshpolymer.in", href: "mailto:info@shriganeshpolymer.in" },
-  { icon: Globe, label: "Website", value: "www.shriganeshpolymer.in", href: "https://www.shriganeshpolymer.in" },
+  {
+    icon: Phone,
+    label: "Call us",
+    value: "+91 98180 58610",
+    sub: "+91 98110 90445",
+    href: "tel:+919818058610",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: ENQUIRY_EMAIL,
+    sub: "Quotes & samples",
+    href: `mailto:${ENQUIRY_EMAIL}`,
+  },
+  {
+    icon: MapPin,
+    label: "Visit",
+    value: "E-64 & 51, Mangolpuri Industrial Area",
+    sub: "Phase-II, Delhi-110034",
+    href: "https://maps.google.com/?q=E-64+Mangolpuri+Industrial+Area+Phase+II+Delhi+110034",
+    external: true,
+  },
 ];
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
- 
-  // Replace with an API route / form service for server-side submission.
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const body = `Name: ${f.get("name")}\nCompany: ${f.get("company")}\nPhone: ${f.get("phone")}\nProduct: ${f.get("product")}\n\n${f.get("message")}`;
-    window.location.href = `mailto:info@shriganeshpolymer.in?subject=${encodeURIComponent("Enquiry – " + f.get("product"))}&body=${encodeURIComponent(body)}`;
-    setSent(true);
-  };
-
-  const input =
-    "w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-500 outline-none transition focus:border-brand-green focus:bg-white/10";
-
   return (
-    <section id="contact" className="section-light relative overflow-hidden py-28">
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-brand-green/10 blur-[120px]" />
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-5">
-        <div className="lg:col-span-2">
-          <Reveal><SectionTag>Contact</SectionTag></Reveal>
-          <Reveal i={1}>
-            <h2 className="mt-6 text-3xl font-bold text-white sm:text-4xl">
-              Let's build something <span className="text-gradient">durable.</span>
-            </h2>
-          </Reveal>
-          <Reveal i={2}>
-            <p className="mt-4 text-gray-400">Tell us your grade, volume and application — our team will get back with the right compound.</p>
-          </Reveal>
+    <section id="contact" className="relative overflow-hidden bg-[#f6f8fb] py-20 font-label sm:py-28">
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
+      <div aria-hidden="true" className="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-[#7cc242]/10 blur-3xl" />
 
-          <div className="mt-10 space-y-4">
-            {details.map((d, i) => (
-              <Reveal key={d.label} i={i}>
-                <a
-                  href={d.href}
-                  target={d.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
-                  className="group flex items-start gap-4"
-                >
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-blue/15 text-blue-400 transition group-hover:bg-brand-green group-hover:text-ink">
-                    <d.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-500">{d.label}</p>
-                    <p className="text-sm text-gray-200 transition group-hover:text-white">{d.value}</p>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+      <div className="relative mx-auto max-w-7xl px-5">
+        <Reveal>
+          <div className="grid overflow-hidden rounded-[2rem] bg-white shadow-[0_40px_80px_-50px_rgba(15,23,42,0.45)] ring-1 ring-slate-200 lg:grid-cols-[0.9fr_1.1fr]">
+            {/* ---------- info panel ---------- */}
+            <div className="relative overflow-hidden bg-[#0b1f4d] p-6 text-white sm:p-10 lg:p-12">
+              <div aria-hidden="true" className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#1e5eff]/40 blur-3xl" />
+              <div aria-hidden="true" className="absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-[#7cc242]/25 blur-3xl" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-40 [background-size:36px_36px] [mask-image:linear-gradient(to_bottom,black,transparent_80%)]"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+                }}
+              />
 
-        <Reveal i={1} className="lg:col-span-3">
-          <div className="glass relative overflow-hidden rounded-3xl p-8">
-            <AnimatePresence mode="wait">
-              {sent ? (
-                <motion.div
-                  key="ok"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex min-h-[420px] flex-col items-center justify-center text-center"
-                >
-                  <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.1 }}>
-                    <CheckCircle2 className="h-16 w-16 text-brand-green" />
-                  </motion.div>
-                  <h3 className="mt-4 text-2xl font-bold text-white">Thank you!</h3>
-                  <p className="mt-2 text-gray-400">Your email app should have opened with the enquiry ready to send.</p>
-                  <button onClick={() => setSent(false)} className="mt-6 text-sm text-brand-green underline">
-                    Send another enquiry
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form key="form" onSubmit={onSubmit} exit={{ opacity: 0 }} className="grid gap-4 sm:grid-cols-2">
-                  <input required name="name" placeholder="Your name" className={input} />
-                  <input name="company" placeholder="Company" className={input} />
-                  <input required name="phone" type="tel" placeholder="Phone" className={input} />
-                  <select name="product" className={input} defaultValue="PC Granules">
-                    {["PC Granules", "PC FR Grade", "PC Extrusion Grade", "ABS Granules", "PBT Glass Filled", "Other"].map((o) => (
-                      <option key={o}>{o}</option>
-                    ))}
-                  </select>
-                  <textarea required name="message" rows={6} placeholder="Requirement (grade, colour, quantity, application)" className={`${input} sm:col-span-2`} />
-                  <div className="grid grid-cols-2 gap-2.5 sm:flex sm:gap-3 sm:col-span-2">
-                    <motion.button
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand-green px-3 py-3.5 text-sm font-semibold text-ink shadow-lg shadow-brand-green/30 sm:px-7 sm:text-base"
-                    >
-                      Send Enquiry <Send className="h-4 w-4 shrink-0" />
-                    </motion.button>
-                    <a
-                      href="https://wa.me/919818058610"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/15 px-3 py-3.5 text-sm font-semibold text-white transition hover:border-brand-green sm:px-7 sm:text-base"
-                    >
-                      <MessageCircle className="h-4 w-4 shrink-0" /> WhatsApp
-                    </a>
-                  </div>
-                </motion.form>
-              )}
-            </AnimatePresence>
+              <div className="relative flex h-full flex-col">
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-10 bg-[#7cc242]" />
+                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7cc242]">Contact</span>
+                </div>
+                <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
+                  Let&apos;s build something{" "}
+                  <em className="font-normal text-[#8be04e]">durable.</em>
+                </h2>
+                <p className="mt-4 max-w-sm leading-relaxed text-blue-100/80">
+                  Tell us your grade, volume and application — our team will get back with the right compound.
+                </p>
+
+                <ul className="mt-9 space-y-3">
+                  {details.map((d) => (
+                    <li key={d.label}>
+                      <a
+                        href={d.href}
+                        target={d.external ? "_blank" : undefined}
+                        rel={d.external ? "noreferrer" : undefined}
+                        className="group flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 transition sm:gap-4 sm:p-4 hover:border-white/25 hover:bg-white/[0.08]"
+                      >
+                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 sm:h-11 sm:w-11 text-[#8be04e] transition group-hover:bg-[#7cc242] group-hover:text-[#0b1f4d]">
+                          <d.icon className="h-5 w-5" />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-200/70">
+                            {d.label}
+                          </span>
+                          <span className="mt-0.5 block text-[13px] font-medium text-white min-[400px]:text-sm sm:text-[15px] [overflow-wrap:anywhere]">
+                            {d.value}
+                          </span>
+                          <span className="block text-xs text-blue-100/60">{d.sub}</span>
+                        </span>
+                        <ArrowUpRight className="mt-1 hidden h-4 w-4 shrink-0 text-white/40 sm:block transition group-hover:text-white" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 hidden flex-wrap items-center gap-3 border-t border-white/10 pt-6 lg:mt-auto lg:flex">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25d366] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#25d366]/25 transition hover:brightness-105"
+                  >
+                    <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* ---------- form ---------- */}
+            <div className="p-6 sm:p-10 lg:p-12">
+              <h3 className="font-serif text-2xl font-medium tracking-tight text-[#0b1530] sm:text-3xl">Request a quote</h3>
+              <p className="mt-2 text-sm text-slate-500">
+                Fields marked * are required.{" "}
+                <Link href="/contact" className="font-semibold text-[#1e5eff] underline-offset-4 hover:underline">
+                  More ways to reach us
+                </Link>
+              </p>
+              <div className="mt-7">
+                <EnquiryForm />
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

@@ -82,6 +82,11 @@ export default function SpinningGlobe({ className = "" }) {
       let last = performance.now();
 
       const frame = (now) => {
+        // ~30fps is plenty for a 40s rotation and halves the per-pixel work
+        if (now - last < 32) {
+          if (!reduced && visible) raf = requestAnimationFrame(frame);
+          return;
+        }
         const dt = Math.min(64, now - last);
         last = now;
         // west → east, like the real Earth

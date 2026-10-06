@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import { ArrowRight, ArrowDown, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import PolymerCore from "./PolymerCore";
 import { Counter } from "./ui";
 
@@ -41,6 +42,7 @@ const applications = [
 
 
 const ease = [0.22, 1, 0.36, 1];
+const MotionLink = motion.create(Link);
 
 function Line({ children, delay, className = "" }) {
   return (
@@ -63,7 +65,7 @@ function MagneticLink({ children, className, href }) {
   const sx = useSpring(x, { stiffness: 200, damping: 15 });
   const sy = useSpring(y, { stiffness: 200, damping: 15 });
   return (
-    <motion.a
+    <MotionLink
       href={href}
       style={{ x: sx, y: sy }}
       onMouseMove={(e) => {
@@ -75,7 +77,7 @@ function MagneticLink({ children, className, href }) {
       className={className}
     >
       {children}
-    </motion.a>
+    </MotionLink>
   );
 }
 
@@ -164,7 +166,7 @@ export default function Hero() {
             className="mt-9 flex flex-wrap items-center gap-4"
           >
             <MagneticLink
-              href="#contact"
+              href="/contact"
               className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-brand-green py-2 pl-7 pr-2 font-semibold text-ink shadow-[0_0_40px_-8px] shadow-brand-green/60"
             >
               <span className="btn-shine absolute inset-0" />
@@ -290,13 +292,6 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <a
-          href="#about"
-          aria-label="Scroll down"
-          className="absolute -top-14 right-5 hidden h-11 w-11 place-items-center rounded-full border border-white/15 text-gray-400 transition hover:border-brand-green hover:text-brand-green md:grid"
-        >
-          <ArrowDown className="h-4 w-4 animate-bounce" />
-        </a>
       </div>
     </section>
   );

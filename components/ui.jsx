@@ -60,7 +60,7 @@ export function Counter({ to, suffix = "", className = "" }) {
 }
 
 // `plain` drops the white card — use it on light backgrounds.
-export function Logo({ className = "", plain = false }) {
+export function Logo({ className = "", plain = false, imgClass = "h-10 w-auto sm:h-11" }) {
   const card = plain ? "" : "rounded-xl bg-white px-2.5 py-1.5 shadow-lg shadow-black/20";
   return (
     <span className={`inline-flex items-center ${card} ${className}`}>
@@ -70,8 +70,8 @@ export function Logo({ className = "", plain = false }) {
         width={1642}
         height={958}
         priority
-        sizes="96px"
-        className="h-10 w-auto sm:h-11"
+        sizes="160px"
+        className={imgClass}
       />
     </span>
   );

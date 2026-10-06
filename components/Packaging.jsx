@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import {
   Package,
   ShieldCheck,
   Palette,
-  Layers3,
   CheckCircle2,
 } from "lucide-react";
 
@@ -108,49 +106,34 @@ const PackagingSection = () => {
             <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-blue-100 via-white to-green-100 opacity-80 blur-xl" />
 
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl">
-              {/* Image */}
+              {/* Video — muted + playsInline is required for autoplay on mobile */}
               <div className="relative overflow-hidden rounded-[1.5rem] bg-slate-100">
-                <Image
-                  src="/sgp/package.webp"
-                  alt="Shri Ganesh Polymer premium packaging design"
-                  width={1400}
-                  height={1000}
-                  className="h-auto w-full object-contain transition-transform duration-700 hover:scale-[1.02]"
+                <video
+                  src="/SGP_Web_Video1.mp4"
+                  poster="/sgp/package.webp"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  disablePictureInPicture
+                  aria-label="Shri Ganesh Polymer premium packaging"
+                  className="block aspect-[750/720] h-auto w-full object-cover"
                 />
               </div>
 
-              {/* Image Bottom Info */}
-              <div className="grid grid-cols-2 gap-3 pt-4">
-                <div className="rounded-xl bg-slate-50 p-4">
-                  <div className="mb-2 flex items-center gap-2">
-                    <Layers3 className="h-4 w-4 text-blue-700" />
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      Grades
-                    </span>
-                  </div>
-
-                  <p className="font-bold text-slate-900">
-                    PC · ABS · PBT
-                  </p>
-                </div>
-
-                <div className="rounded-xl bg-slate-50 p-4">
-                  <div className="mb-2 flex items-center gap-2">
-                    <Palette className="h-4 w-4 text-green-700" />
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                      Branding
-                    </span>
-                  </div>
-
-                  <p className="font-bold text-slate-900">
-                    Custom Labels
+              {/* Name below video */}
+              <div className="pt-4">
+                <div className="rounded-xl bg-slate-50 px-4 py-4 text-center">
+                  <p className="text-lg font-bold tracking-wide text-slate-900 sm:text-xl">
+                    Shri Ganesh <span className="text-blue-700">Polymer</span>
                   </p>
                 </div>
               </div>
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-xl sm:block">
+            <div className="absolute -left-5 -top-5 hidden rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-xl sm:block">
               <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
                 Packaging
               </p>
