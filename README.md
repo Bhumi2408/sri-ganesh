@@ -1,4 +1,4 @@
-# Shree Ganesh Polymer — Website
+# shri Ganesh Polymer — Website
 
 Next.js 15 (App Router) · JSX · Tailwind CSS v4 · Framer Motion · lucide-react
 

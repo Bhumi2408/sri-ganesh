@@ -106,7 +106,7 @@ export default function Hero() {
       id="intro"
       ref={sectionRef}
       onMouseMove={onMove}
-      className="hero-spotlight section-light relative flex min-h-screen flex-col overflow-hidden pt-20"
+      className="hero-spotlight section-light relative flex min-h-svh flex-col overflow-hidden pt-20"
       style={{ "--accent": m.accent }}
     >
       {/* ---------- background ---------- */}

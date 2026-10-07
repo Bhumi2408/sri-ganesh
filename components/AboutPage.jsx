@@ -12,9 +12,30 @@ import {
   Palette,
   ArrowUpRight,
   Phone,
+  Lightbulb,
+  Plug,
+  Car,
+  Smartphone,
+  Gauge,
+  Briefcase,
 } from "lucide-react";
-import { Reveal } from "./ui";
-import StatsBar from "./StatsBar";
+import { Reveal, Counter } from "./ui";
+
+const numbers = [
+  { to: 15, label: "Years of excellence", note: "Serving industry since inception" },
+  { to: 5000, unit: "MT", label: "Annual capacity", note: "Twin & single screw extrusion" },
+  { to: 500, label: "Industrial clients", note: "Brands across India" },
+  { to: 105, label: "Distributors", note: "Pan-India supply network" },
+];
+
+const industries = [
+  { icon: Lightbulb, title: "LED & Lighting", text: "Panels, battens, bulb bodies, lamp holders" },
+  { icon: Plug, title: "Electrical", text: "Switches, sockets, MCBs, terminal blocks" },
+  { icon: Car, title: "Automotive", text: "Interior and under-hood components" },
+  { icon: Smartphone, title: "Mobile accessories", text: "Chargers, adaptors and housings" },
+  { icon: Gauge, title: "Meters & enclosures", text: "Meter boxes, junction & gang boxes" },
+  { icon: Briefcase, title: "Consumer goods", text: "Luggage shells, set-top boxes, keyboards" },
+];
 
 const facts = [
   "2 twin screw & 2 single screw extruders",
@@ -49,13 +70,6 @@ const strengths = [
   { icon: FlaskConical, title: "Tested in-house", text: "MFI, impact, tensile, specific gravity and colour testing in our own lab." },
   { icon: Palette, title: "Custom grades & colours", text: "FR, extrusion and glass-filled grades with colour matching to your shade." },
   { icon: Truck, title: "Reliable supply", text: "5000+ MT annual capacity and a nationwide distribution network." },
-];
-
-const certs = [
-  { img: "/sgp/badge-iso9001.webp", title: "ISO 9001:2015", sub: "Quality management" },
-  { img: "/sgp/badge-iso14001.webp", title: "ISO 14001:2015", sub: "Environmental management" },
-  { img: "/sgp/badge-msme.webp", title: "MSME", sub: "Govt. of India" },
-  { img: "/sgp/badge-rohs.webp", title: "RoHS", sub: "Compliant" },
 ];
 
 function Eyebrow({ children }) {
@@ -130,7 +144,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <StatsBar />
+      {/* ---------- numbers ---------- */}
+      <section aria-label="Company at a glance" className="bg-white px-5 pb-16 sm:pb-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px overflow-hidden rounded-[2rem] bg-white/10 lg:grid-cols-4">
+          {numbers.map((n, i) => (
+            <Reveal key={n.label} i={i} className="h-full">
+              <div className={`h-full px-6 py-8 sm:px-8 sm:py-10 ${i % 2 === 0 ? "bg-[#0b1f4d] text-white" : "bg-[#eef4ff] text-[#0b1530]"} ${i === 2 ? "max-lg:bg-[#eef4ff] max-lg:text-[#0b1530]" : ""} ${i === 3 ? "max-lg:bg-[#0b1f4d] max-lg:text-white" : ""}`}>
+                <p className="flex items-baseline font-serif text-4xl font-semibold leading-none sm:text-5xl">
+                  <Counter to={n.to} />
+                  <span className="text-[#7cc242]">+</span>
+                  {n.unit && <span className="ml-1.5 font-label text-sm font-semibold opacity-60">{n.unit}</span>}
+                </p>
+                <p className="mt-4 text-sm font-semibold">{n.label}</p>
+                <p className="mt-1 text-xs opacity-60">{n.note}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       {/* ---------- mission / vision / values ---------- */}
       <section className="relative bg-[#f6f8fb] py-16 sm:py-24">
@@ -203,29 +234,41 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ---------- certifications ---------- */}
-      <section className="relative bg-[#f6f8fb] py-16 sm:py-20">
+      {/* ---------- industries ---------- */}
+      <section className="relative bg-[#f6f8fb] py-16 sm:py-24">
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-        <div className="mx-auto max-w-7xl px-5 text-center">
-          <Reveal>
-            <div className="flex justify-center">
-              <Eyebrow>Certifications</Eyebrow>
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Reveal>
+                <Eyebrow>Industries we serve</Eyebrow>
+              </Reveal>
+              <Reveal i={1}>
+                <h2 className="mt-5 max-w-xl font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+                  Inside the products you use every day.
+                </h2>
+              </Reveal>
             </div>
-          </Reveal>
-          <Reveal i={1}>
-            <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
-              Quality you can verify.
-            </h2>
-          </Reveal>
-          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
-            {certs.map((c, i) => (
-              <Reveal key={c.title} i={i} className="h-full">
-                <div className="flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-white p-5">
-                  <div className="relative h-20 w-20 sm:h-24 sm:w-24">
-                    <Image src={c.img} alt={`${c.title} certification`} fill sizes="96px" className="object-contain" />
+            <Reveal i={2}>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1e5eff] underline-offset-4 hover:underline"
+              >
+                Browse our granules <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((d, i) => (
+              <Reveal key={d.title} i={i * 0.4} className="h-full">
+                <div className="group flex h-full items-center gap-5 rounded-2xl bg-white p-5 ring-1 ring-slate-200 transition duration-300 hover:ring-[#1e5eff]/40 sm:p-6">
+                  <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#0b1f4d] text-[#8be04e] transition-transform duration-300 group-hover:-rotate-6">
+                    <d.icon className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{d.title}</h3>
+                    <p className="mt-1 text-sm leading-snug text-slate-500">{d.text}</p>
                   </div>
-                  <p className="mt-4 text-sm font-semibold text-slate-900">{c.title}</p>
-                  <p className="text-xs text-slate-500">{c.sub}</p>
                 </div>
               </Reveal>
             ))}

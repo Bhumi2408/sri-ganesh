@@ -7,6 +7,8 @@ import Facility from "@/components/Facility";
 import CertifiedTrust from "@/components/CertifiedTrust";
 import Contact from "@/components/Contact";
 import PackagingSection from "@/components/Packaging";
+import Testimonials from "@/components/Testimonials";
+import ThermalProperties from "@/components/ThermalProperties";
 
 export default function Home() {
   return (
@@ -15,10 +17,12 @@ export default function Home() {
       <StatsBar />
       <About />
       <Products />
-      <Hero />
+      <ThermalProperties />
+      {/* <Hero /> */}
       <Facility />
       <CertifiedTrust />
       <PackagingSection />
+      <Testimonials />
       <Contact />
     </>
   );

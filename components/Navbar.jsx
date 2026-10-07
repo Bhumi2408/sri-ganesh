@@ -57,11 +57,11 @@ export default function Navbar() {
         className="hidden overflow-hidden bg-[#0b1f4d] text-[13px] text-blue-100/80 md:block"
       >
         <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-5">
-          <p className="flex items-center gap-2">
+          <p className="flex items-center gap-2 text-[17px]">
             <ShieldCheck className="h-3.5 w-3.5 text-brand-green" />
             ISO 9001 &amp; 14001 certified manufacturer of PC, ABS &amp; PBT granules
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 text-[17px]">
             <a href={PHONE.href} className="flex items-center gap-1.5 transition hover:text-white">
               <Phone className="h-3.5 w-3.5" /> {PHONE.label}
             </a>
@@ -80,9 +80,9 @@ export default function Navbar() {
             : "border-slate-200/60 bg-white/80 backdrop-blur-md"
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:h-[68px]">
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:h-[85px]">
           <Link href="/" aria-label="Shri Ganesh Polymer — home" className="shrink-0">
-            <Logo plain imgClass="h-12 w-auto md:h-[58px]" />
+            <Logo plain imgClass="h-12 w-auto md:h-[82px]" />
           </Link>
 
           {/* links */}
@@ -151,6 +151,28 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+
+        {/* name marquee */}
+        <div className="relative flex h-8 items-center overflow-hidden bg-[#0b1f4d] [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
+          <div className="flex w-max shrink-0 animate-marquee motion-reduce:animate-none">
+            {[0, 1].map((copy) => (
+              <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <span key={i} className="flex items-center whitespace-nowrap">
+                    <span
+                      className={`px-5 text-[11px] font-semibold uppercase tracking-[0.3em] sm:text-xs ${
+                        i % 2 ? "text-[#8be04e]" : "text-white"
+                      }`}
+                    >
+                      Shri Ganesh Polymer
+                    </span>
+                    <span className="h-1.5 w-1.5 rotate-45 bg-[#7cc242]" />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* mobile menu */}
         <AnimatePresence>

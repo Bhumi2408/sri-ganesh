@@ -1,5 +1,5 @@
 import PageHeader from "@/components/PageHeader";
-import Facility from "@/components/Facility";
+import FacilityPage from "@/components/FacilityPage";
 
 export const metadata = {
   title: "Facility",
@@ -7,7 +7,7 @@ export const metadata = {
     "Twin and single screw extrusion lines with an in-house polymer testing lab — 5000+ MT annual production capacity.",
 };
 
-export default function FacilityPage() {
+export default function Facility() {
   return (
     <>
       <PageHeader
@@ -17,7 +17,7 @@ export default function FacilityPage() {
         accent="precision."
         subtitle="Twin and single screw extrusion lines backed by an in-house testing lab, so every batch meets specification."
       />
-      <Facility />
+      <FacilityPage />
     </>
   );
 }

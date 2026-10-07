@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Phone, Mail, Globe, MessageCircle, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, MessageCircle, ArrowUpRight, Facebook, Instagram, Youtube } from "lucide-react";
 import { Logo } from "./ui";
 
 const company = [
@@ -15,6 +15,13 @@ const productLinks = [
   { href: "/products/abs", label: "ABS Granules" },
   { href: "/products/pbt", label: "PBT Glass Filled" },
   { href: "/products", label: "All products" },
+];
+
+// TODO: replace with the company's real profile URLs.
+const socials = [
+  { href: "https://www.facebook.com/shriganeshpolymer", label: "Facebook", icon: Facebook, hover: "hover:bg-[#1877f2]" },
+  { href: "https://www.instagram.com/shri_ganeshpolymer/", label: "Instagram", icon: Instagram, hover: "hover:bg-[#dd2a7b]" },
+  { href: "https://www.youtube.com/@GaneshPolymer", label: "YouTube", icon: Youtube, hover: "hover:bg-[#ff0000]" },
 ];
 
 const badges = [
@@ -95,6 +102,23 @@ export default function Footer() {
               </span>
             ))}
           </div>
+          <div className="mt-7">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-100/50">Follow us</p>
+            <div className="mt-3 flex items-center gap-2.5">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className={`grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition duration-300 hover:-translate-y-0.5 hover:border-transparent ${s.hover}`}
+                >
+                  <s.icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div>
@@ -148,7 +172,7 @@ export default function Footer() {
       {/* ---------- bottom bar ---------- */}
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-blue-100/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Shree Ganesh Polymer. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} shri Ganesh Polymer. All rights reserved. | Powered By <Link href="https://www.cybertricksmedia.com/" target="_blank">Cybertricksmedia Pvt Ltd</Link></p>
           <p>Manufacturing of Engineering Polymers · PC | ABS | PBT</p>
         </div>
       </div>

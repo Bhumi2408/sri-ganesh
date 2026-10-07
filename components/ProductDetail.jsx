@@ -21,7 +21,7 @@ export default function ProductDetail({ slug }) {
   return (
     <div className="font-label">
       {/* ---------- hero ---------- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4ff] via-[#f6f9fd] to-white pb-14 pt-[calc(65px+2.5rem)] md:pb-20 md:pt-[calc(105px+3rem)]">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4ff] via-[#f6f9fd] to-white pb-14 pt-[calc(97px+2.5rem)] md:pb-20 md:pt-[calc(137px+3rem)]">
         <div
           aria-hidden="true"
           className="absolute inset-0 [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"
@@ -118,34 +118,90 @@ export default function ProductDetail({ slug }) {
       {/* ---------- applications ---------- */}
       <section className="relative bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5">
-          <div className="max-w-2xl">
-            <Reveal><Eyebrow>Applications</Eyebrow></Reveal>
-            <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
-                Products made with our {p.code} granules.
-              </h2>
+          <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
+              <Reveal><Eyebrow>Applications</Eyebrow></Reveal>
+              <Reveal i={1}>
+                <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+                  Products made with our {p.code} granules.
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal i={2}>
+              <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+                <span className="font-serif text-lg font-semibold leading-none" style={{ color: p.accent }}>
+                  {p.applications.length}
+                </span>
+                applications &amp; counting
+              </p>
             </Reveal>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {p.applications.map((a, i) => (
-              <Reveal key={a.label} i={i * 0.4} className="h-full">
-                <figure className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(15,23,42,0.35)]">
-                  <div className="relative m-2.5 mb-0 aspect-square overflow-hidden rounded-2xl bg-white">
+              <Reveal key={a.label} i={i * 0.3} className="h-full">
+                <figure className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.4)]">
+                  <div
+                    className="relative aspect-[4/3] overflow-hidden"
+                    style={{ background: `radial-gradient(circle at 50% 60%, #ffffff 0%, ${p.accent}12 70%, ${p.accent}22 100%)` }}
+                  >
+                    <span className="absolute left-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full bg-white/90 font-serif text-xs font-semibold text-slate-500 shadow-sm backdrop-blur sm:left-4 sm:top-4">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <Image
                       src={a.img}
                       alt={a.label}
                       fill
-                      sizes="(min-width: 1024px) 300px, (min-width: 768px) 33vw, 50vw"
-                      className="object-contain p-3 transition-transform duration-700 group-hover:scale-[1.06]"
+                      sizes="(min-width: 1024px) 400px, 50vw"
+                      className="object-contain p-5 drop-shadow-[0_18px_18px_rgba(15,23,42,0.18)] transition-transform duration-700 group-hover:scale-[1.08] sm:p-8"
                     />
                   </div>
-                  <figcaption className="flex flex-1 items-center gap-2 px-4 py-4">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: p.accent }} />
-                    <span className="text-sm font-medium leading-snug text-slate-800">{a.label}</span>
+                  <figcaption className="flex flex-1 items-center justify-between gap-3 border-t border-slate-100 px-4 py-3.5 sm:px-5 sm:py-4">
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold leading-snug text-slate-900 sm:text-base">{a.label}</p>
+                      <p className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400">
+                        Moulded in {p.code}
+                      </p>
+                    </div>
+                    <span
+                      className="hidden h-9 w-9 shrink-0 place-items-center rounded-full text-white opacity-0 transition duration-300 group-hover:opacity-100 sm:grid"
+                      style={{ background: p.accent }}
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
                   </figcaption>
+                  <span
+                    className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+                    style={{ background: p.accent }}
+                  />
                 </figure>
               </Reveal>
             ))}
+
+            {/* CTA tile fills the leftover cells of the last row */}
+            <Reveal
+              i={p.applications.length * 0.3}
+              className={`h-full ${p.applications.length % 2 === 0 ? "col-span-2" : ""} ${["lg:col-span-3", "lg:col-span-2", "lg:col-span-1"][p.applications.length % 3]}`}
+            >
+              <Link
+                href="/contact"
+                className="group relative flex h-full min-h-[180px] flex-col justify-between overflow-hidden rounded-3xl bg-[#0b1f4d] p-6 text-white sm:p-7"
+              >
+                <div aria-hidden="true" className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-40 blur-3xl" style={{ background: p.accent }} />
+                <div className="relative">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8be04e]">Your part next?</p>
+                  <p className="mt-3 font-serif text-2xl font-medium leading-snug">
+                    Tell us what you mould — we&apos;ll suggest the right {p.code} grade.
+                  </p>
+                </div>
+                <span className="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold">
+                  Get a quote
+                  <span className="grid h-8 w-8 place-items-center rounded-full bg-[#7cc242] text-[#0b1f4d] transition-transform duration-300 group-hover:rotate-45">
+                    <ArrowUpRight className="h-4 w-4" />
+                  </span>
+                </span>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

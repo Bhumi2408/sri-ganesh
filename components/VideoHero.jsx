@@ -68,7 +68,7 @@ export default function VideoHero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-end sm:min-h-[78svh] sm:items-center overflow-hidden bg-[#0a1630] pt-[65px] font-label md:min-h-[82vh] md:pt-[105px] lg:min-h-[calc(105px+45.5vw)]"
+      className="relative flex min-h-[100svh] items-end sm:min-h-[78svh] sm:items-center overflow-hidden bg-[#0a1630] pt-[97px] font-label md:min-h-[82vh] md:pt-[137px] lg:min-h-[calc(137px+45.5vw)]"
     >
       {/* background video — muted + playsInline is required for autoplay on mobile */}
       {/* poster shows instantly; the matching video loads on top of it */}
@@ -95,10 +95,12 @@ export default function VideoHero() {
         />
       )}
 
-      {/* mobile: white wash over the whole video · desktop: navy wash on the left only */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,.3)_0%,rgba(255,255,255,.2)_50%,rgba(255,255,255,.45)_100%)] sm:bg-none sm:bg-[#0a1630]/35 md:bg-transparent md:bg-[linear-gradient(90deg,rgba(9,22,52,.78)_0%,rgba(9,22,52,.5)_25%,rgba(9,22,52,.12)_48%,rgba(9,22,52,0)_62%)]" />
+      {/* mobile: navy fade only behind the text at the bottom, video stays clear above */}
+      <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(180deg,rgba(6,18,46,0)_0%,rgba(6,18,46,.45)_28%,rgba(6,18,46,.82)_58%,rgba(6,18,46,.95)_100%)] sm:hidden" />
+      {/* desktop: navy wash on the left only */}
+      <div className="absolute inset-0 hidden sm:block sm:bg-[#0a1630]/35 md:bg-transparent md:bg-[linear-gradient(90deg,rgba(9,22,52,.78)_0%,rgba(9,22,52,.5)_25%,rgba(9,22,52,.12)_48%,rgba(9,22,52,0)_62%)]" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 pb-3 pt-5 sm:px-5 sm:py-8 md:py-14 lg:max-w-none lg:px-[3.4vw] lg:py-[3vw]">
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-8 pt-5 sm:px-5 sm:py-8 md:py-14 lg:max-w-none lg:px-[3.4vw] lg:py-[3vw]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -112,7 +114,7 @@ export default function VideoHero() {
           />
           <motion.div
             {...up(0.15)}
-            className="hidden items-center gap-2.5 rounded-full border border-[#7cc242]/60 sm:inline-flex bg-[linear-gradient(90deg,rgba(76,175,39,.28),rgba(255,255,255,.06))] whitespace-nowrap py-1 pl-1.5 pr-2.5 text-[9.5px] font-medium uppercase tracking-[0.02em] text-white sm:py-1.5 sm:pl-2 sm:pr-3 sm:text-[13px] sm:tracking-[0.04em] lg:h-[max(2.6vw,34px)] lg:gap-[0.9vw] lg:pl-[0.9vw] lg:pr-[1.1vw] lg:text-[max(0.8vw,11px)]"
+            className="hidden items-center gap-2.5 rounded-full border border-[#7cc242]/60 bg-[linear-gradient(90deg,rgba(76,175,39,.28),rgba(255,255,255,.06))] whitespace-nowrap text-[13px] font-medium uppercase tracking-[0.04em] text-white sm:inline-flex sm:py-1.5 sm:pl-2 sm:pr-3 sm:text-[13px] sm:tracking-[0.04em] lg:h-[max(2.6vw,34px)] lg:gap-[0.9vw] lg:pl-[0.9vw] lg:pr-[1.1vw] lg:text-[max(0.8vw,11px)]"
           >
             <ShieldCheck className="h-5 w-5 fill-[#5cc23a] sm:h-6 sm:w-6 text-[#0b1f3f] lg:h-[1.6vw] lg:w-[1.6vw]" strokeWidth={2} />
             ISO 9001 &amp; 14001 certified manufacturer
@@ -121,25 +123,25 @@ export default function VideoHero() {
 
           <motion.h1
             {...up(0.25)}
-            className="mt-0 whitespace-nowrap text-[1.5rem] font-extrabold sm:mt-6 sm:whitespace-normal leading-[1.3] sm:leading-[1.08] tracking-[-0.03em] text-[#0b1530] sm:text-5xl sm:text-white lg:mt-[1.6vw] lg:whitespace-nowrap lg:text-[4.4vw] lg:leading-[1.04]"
+            className="mt-0 whitespace-nowrap text-[clamp(1.35rem,6.6vw,1.75rem)] font-extrabold leading-[1.15] sm:whitespace-normal sm:leading-[1.08] tracking-[-0.03em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,.35)] sm:mt-6 sm:text-5xl sm:drop-shadow-none lg:mt-[1.6vw] lg:whitespace-nowrap lg:text-[4.4vw] lg:leading-[1.04]"
           >
             Engineering Polymers,
             <br />
-            <span className="text-[#1e5eff] sm:bg-gradient-to-r sm:from-[#3b82f6] sm:via-[#22c3e6] sm:to-[#86e04a] sm:bg-clip-text sm:text-transparent">
+            <span className="bg-gradient-to-r from-[#3b82f6] via-[#22c3e6] to-[#86e04a] bg-clip-text text-transparent">
               Built to Last.
             </span>
           </motion.h1>
 
-          <motion.p {...up(0.35)} className="mt-5 hidden max-w-[40rem] sm:block text-[15px] leading-snug text-white/90 sm:text-[1.3rem] sm:leading-[1.4] lg:mt-[1.5vw] lg:max-w-[max(36vw,420px)] lg:text-[max(1.3vw,16px)] lg:leading-[1.3]">
+          <motion.p {...up(0.35)} className="mt-3 max-w-[40rem] text-[14.5px] leading-relaxed text-white/85 sm:mt-5 sm:text-white/90 sm:text-[1.3rem] sm:leading-[1.4] lg:mt-[1.5vw] lg:max-w-[max(36vw,420px)] lg:text-[max(1.3vw,16px)] lg:leading-[1.3]">
             Premium PC, ABS &amp; PBT granules for India&apos;s leading manufacturers. Consistent quality. Reliable
             supply. Stronger products for a better tomorrow.
           </motion.p>
 
-          <motion.div {...up(0.45)} className="mt-2.5 flex sm:mt-6 flex-wrap items-center gap-2 sm:gap-2.5 lg:mt-[1.3vw] lg:gap-[0.75vw]">
+          <motion.div {...up(0.45)} className="mt-4 flex sm:mt-6 flex-wrap items-center gap-2 sm:gap-2.5 lg:mt-[1.3vw] lg:gap-[0.75vw]">
             {grades.map((g) => (
               <span
                 key={g.code}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white/90 py-1 pl-2 pr-3 text-xs font-medium sm:gap-2 text-[#0b1530] shadow-sm sm:border-white/30 sm:bg-transparent sm:bg-[linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.04))] sm:text-white sm:shadow-none sm:py-2 sm:pl-3.5 sm:pr-5 sm:text-base lg:h-[max(2.5vw,36px)] lg:gap-[0.7vw] lg:py-0 lg:pl-[0.8vw] lg:pr-[1.2vw] lg:text-[max(0.95vw,14px)]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-[linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05))] py-1.5 pl-2.5 pr-3.5 text-[13px] font-medium text-white backdrop-blur-sm sm:gap-2 sm:backdrop-blur-none sm:py-2 sm:pl-3.5 sm:pr-5 sm:text-base lg:h-[max(2.5vw,36px)] lg:gap-[0.7vw] lg:py-0 lg:pl-[0.8vw] lg:pr-[1.2vw] lg:text-[max(0.95vw,14px)]"
               >
                 <Pellets color={g.color} />
                 {g.code}
@@ -147,7 +149,7 @@ export default function VideoHero() {
             ))}
           </motion.div>
 
-          <motion.div {...up(0.55)} className="mt-4 flex sm:mt-7 flex-wrap items-center gap-3 lg:mt-[1.7vw] lg:gap-[1.3vw]">
+          <motion.div {...up(0.55)} className="mt-6 flex sm:mt-7 flex-wrap items-center gap-2.5 sm:gap-3 lg:mt-[1.7vw] lg:gap-[1.3vw]">
             <Link
               href="/products"
               className="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-[#06122e] py-1.5 pl-5 pr-1.5 text-sm font-semibold text-white sm:gap-4 sm:py-2 sm:pl-7 sm:pr-2 sm:text-base shadow-xl shadow-black/30 transition hover:bg-[#0b1d45] sm:text-lg lg:h-[max(4vw,50px)] lg:gap-[1.1vw] lg:py-0 lg:pl-[2vw] lg:pr-[0.55vw] lg:text-[max(1.15vw,15px)]"
@@ -159,7 +161,7 @@ export default function VideoHero() {
             </Link>
             <Link
               href="/contact"
-              className="group hidden items-center gap-4 rounded-full border border-white/50 sm:inline-flex bg-white/[0.04] px-8 py-3.5 font-semibold text-white transition hover:border-white hover:bg-white/10 sm:py-4 sm:text-lg lg:h-[max(4vw,50px)] lg:gap-[1.1vw] lg:px-[2.3vw] lg:py-0 lg:text-[max(1.15vw,15px)]"
+              className="group hidden items-center gap-4 rounded-full border border-white/50 bg-white/[0.06] px-8 font-semibold text-white sm:inline-flex transition hover:border-white hover:bg-white/10 sm:py-4 sm:text-lg lg:h-[max(4vw,50px)] lg:gap-[1.1vw] lg:px-[2.3vw] lg:py-0 lg:text-[max(1.15vw,15px)]"
             >
               Get a quote
               <ArrowRight className="h-4 w-4 lg:h-[1.2vw] lg:w-[1.2vw] transition-transform duration-300 group-hover:translate-x-1" />

@@ -2,10 +2,10 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 // Title band for inner pages. Top padding clears the fixed navbar
-// (65px mobile, 105px desktop with the utility strip).
+// (97px mobile, 137px desktop — incl. utility strip and name marquee).
 export default function PageHeader({ eyebrow, title, accent, subtitle, crumb }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4ff] via-[#f6f9fd] to-white pb-14 pt-[calc(65px+3.5rem)] font-label md:pb-20 md:pt-[calc(105px+4.5rem)]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4ff] via-[#f6f9fd] to-white pb-14 pt-[calc(97px+3.5rem)] font-label md:pb-20 md:pt-[calc(137px+4.5rem)]">
       <div
         aria-hidden="true"
         className="absolute inset-0 [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"

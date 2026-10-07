@@ -21,10 +21,16 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b1f4d", // browser bar colour on Android Chrome / iOS Safari
+};
+
 export const metadata = {
   title: {
-    default: "Shree Ganesh Polymer | Engineering Polymers – PC, ABS, PBT",
-    template: "%s | Shree Ganesh Polymer",
+    default: "shri Ganesh Polymer | Engineering Polymers – PC, ABS, PBT",
+    template: "%s | shri Ganesh Polymer",
   },
   description:
     "Manufacturer of PC, ABS and PBT engineering polymer granules. 5000+ MT annual capacity, ISO 9001 & 14001 certified, serving 500+ clients across India.",

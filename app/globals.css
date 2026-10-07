@@ -22,6 +22,29 @@
   50% { transform: translateY(-14px); }
 }
 
+/* ---------- mobile (iOS Safari / Android Chrome) ---------- */
+html {
+  -webkit-text-size-adjust: 100%; /* stop iOS inflating text in landscape */
+  text-size-adjust: 100%;
+}
+html,
+body {
+  overflow-x: clip; /* no sideways wobble on touch; unlike hidden it keeps sticky working */
+}
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+/* iOS zooms into fields with text under 16px */
+@media (max-width: 639px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
 body {
   background: var(--color-ink);
   color: #e5e7eb;

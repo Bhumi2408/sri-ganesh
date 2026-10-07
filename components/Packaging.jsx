@@ -106,19 +106,16 @@ const PackagingSection = () => {
             <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-blue-100 via-white to-green-100 opacity-80 blur-xl" />
 
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-4 shadow-2xl">
-              {/* Video — muted + playsInline is required for autoplay on mobile */}
-              <div className="relative overflow-hidden rounded-[1.5rem] bg-slate-100">
-                <video
-                  src="/SGP_Web_Video1.mp4"
-                  poster="/sgp/package.webp"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  disablePictureInPicture
-                  aria-label="Shri Ganesh Polymer premium packaging"
-                  className="block aspect-[750/720] h-auto w-full object-cover"
+              {/* bag print artwork */}
+              <div className="relative overflow-hidden rounded-[1.5rem] bg-white">
+                <img
+                  src="/katta.jpeg"
+                  alt="Shri Ganesh Polymer packaging bag design for PC, ABS and PBT granules"
+                  width={1600}
+                  height={1150}
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
                 />
               </div>
 

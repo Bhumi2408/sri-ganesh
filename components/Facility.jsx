@@ -208,7 +208,6 @@ export default function Facility() {
                     <t.icon className="h-5 w-5" />
                   </span>
                   <span className="flex-1 text-sm font-medium leading-snug text-slate-800">{t.label}</span>
-                  <span className="font-serif text-xs italic text-slate-300">0{i + 1}</span>
                 </div>
               </Reveal>
             ))}
