@@ -55,7 +55,7 @@ function useHeroVideo() {
   const [src, setSrc] = useState(null);
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 640px)");
-    const pick = () => setSrc(mq.matches ? "/bannervideo.mp4" : "/mobilebannervideo.mp4");
+    const pick = () => setSrc(mq.matches ? "/herovideo.mp4" : "/herovideo-mobile.mp4");
     pick();
     mq.addEventListener("change", pick);
     return () => mq.removeEventListener("change", pick);
@@ -68,16 +68,18 @@ export default function VideoHero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-end sm:min-h-[78svh] sm:items-center overflow-hidden bg-[#0a1630] pt-[97px] font-label md:min-h-[82vh] md:pt-[137px] lg:min-h-[calc(137px+45.5vw)]"
+      className="relative flex flex-col overflow-hidden bg-[#0a1630] pt-[97px] font-label sm:min-h-[78svh] sm:flex-row sm:items-center md:min-h-[82vh] md:pt-[137px] lg:min-h-[calc(137px+45.5vw)]"
     >
+      {/* mobile: landscape video block above the text; sm+: full-bleed background */}
+      <div className="relative aspect-[32/15] w-full sm:absolute sm:inset-0 sm:aspect-auto">
       {/* background video — muted + playsInline is required for autoplay on mobile */}
       {/* poster shows instantly; the matching video loads on top of it */}
       <picture aria-hidden="true">
-        <source media="(min-width: 640px)" srcSet="/bannervideo-poster.webp" />
+        <source media="(min-width: 640px)" srcSet="/herovideo-poster.webp" />
         <img
-          src="/mobilebannervideo-poster.webp"
+          src="/herovideo-mobile-poster.webp"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[center_top] sm:object-[70%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       </picture>
       {video && (
@@ -91,14 +93,15 @@ export default function VideoHero() {
           preload="auto"
           disablePictureInPicture
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover object-[center_top] sm:object-[70%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
       )}
 
-      {/* mobile: navy fade only behind the text at the bottom, video stays clear above */}
-      <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(180deg,rgba(6,18,46,0)_0%,rgba(6,18,46,.45)_28%,rgba(6,18,46,.82)_58%,rgba(6,18,46,.95)_100%)] sm:hidden" />
+      {/* mobile: soft fade from the video into the navy text area below */}
+      <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-b from-transparent to-[#0a1630] sm:hidden" />
       {/* desktop: navy wash on the left only */}
       <div className="absolute inset-0 hidden sm:block sm:bg-[#0a1630]/35 md:bg-transparent md:bg-[linear-gradient(90deg,rgba(9,22,52,.78)_0%,rgba(9,22,52,.5)_25%,rgba(9,22,52,.12)_48%,rgba(9,22,52,0)_62%)]" />
+      </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-5 pb-8 pt-5 sm:px-5 sm:py-8 md:py-14 lg:max-w-none lg:px-[3.4vw] lg:py-[3vw]">
         <motion.div

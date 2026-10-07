@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import PackagingSection from "@/components/Packaging";
 import Testimonials from "@/components/Testimonials";
 import ThermalProperties from "@/components/ThermalProperties";
+import Exhibition from "@/components/Exhibition";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Facility />
       <CertifiedTrust />
       <PackagingSection />
+      <Exhibition />
       <Testimonials />
       <Contact />
     </>

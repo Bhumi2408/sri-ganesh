@@ -7,6 +7,7 @@ const company = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About us" },
   { href: "/facility", label: "Facility" },
+  { href: "/exhibition", label: "Exhibition" },
   { href: "/contact", label: "Contact" },
 ];
 

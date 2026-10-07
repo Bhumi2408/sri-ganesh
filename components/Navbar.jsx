@@ -11,6 +11,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
   { href: "/facility", label: "Facility" },
+  { href: "/exhibition", label: "Exhibition" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -94,7 +95,7 @@ export default function Navbar() {
                   <Link
                     href={l.href}
                     aria-current={on ? "page" : undefined}
-                    className={`relative block rounded-full px-4 py-2 text-sm font-medium transition-colors lg:px-5 ${
+                    className={`relative block rounded-full px-3 py-2 text-sm font-medium transition-colors lg:px-5 ${
                       on ? "text-white" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
