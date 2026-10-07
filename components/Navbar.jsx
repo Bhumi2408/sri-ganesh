@@ -153,7 +153,7 @@ export default function Navbar() {
         </nav>
 
         {/* name marquee */}
-        <div className="relative flex h-8 items-center overflow-hidden bg-[#0b1f4d] [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
+        <div className="relative flex h-8 items-center overflow-hidden bg-[#0b1f4d]">
           <div className="flex w-max shrink-0 animate-marquee motion-reduce:animate-none">
             {[0, 1].map((copy) => (
               <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center">
