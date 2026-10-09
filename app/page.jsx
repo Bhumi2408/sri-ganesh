@@ -3,6 +3,7 @@ import StatsBar from "@/components/StatsBar";
 import Hero from "@/components/Hero";
 /* import About from "@/components/About"; */
 import Products from "@/components/Products";
+import ProductVideo from "@/components/ProductVideo";
 import Applications from "@/components/Applications";
 import Transformation from "@/components/Transformation";
 import PanIndia from "@/components/PanIndia";
@@ -23,6 +24,7 @@ export default function Home() {
       <StatsBar />
 {/*       <About /> */}
       <Products />
+      <ProductVideo />
       <Applications />
       <div className="max-sm:order-1">
         <Transformation />

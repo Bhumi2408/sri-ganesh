@@ -108,9 +108,9 @@ export default function Navbar() {
             : "border-slate-200/60 bg-white/80 backdrop-blur-md"
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-5 md:h-[85px]">
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-5 md:h-[85px] md:gap-6">
           <Link href="/" aria-label="Shri Ganesh Polymer — home" className="shrink-0">
-            <Logo plain imgClass="h-12 w-auto md:h-[82px]" />
+            <Logo plain stack className="gap-2 md:gap-2.5" imgClass="h-11 w-auto md:h-12 xl:h-14" nameClass="text-[clamp(14px,4.1vw,19px)] font-black md:text-lg md:font-extrabold md:leading-tight xl:text-[22px] xl:leading-none" />
           </Link>
 
           {/* links */}

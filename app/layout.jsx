@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuotePopup from "@/components/QuotePopup";
+import FloatingContact from "@/components/FloatingContact";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
         <main className="relative overflow-x-hidden">{children}</main>
         <Footer />
         <QuotePopup />
+        <FloatingContact />
       </body>
     </html>
   );
