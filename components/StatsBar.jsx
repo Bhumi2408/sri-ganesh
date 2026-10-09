@@ -10,8 +10,8 @@ const ROYAL = { from: "#5a95f0", to: "#1f6fe0", line: "bg-[#1f6fe0]", glow: "sha
 
 const stats = [
   { icon: CalendarClock, to: 15, suffix: "+", label: "Years of Excellence", short: "Years of Trust", note: "Serving industry since inception", tone: ORANGE },
-  { icon: Factory, to: 5000, suffix: "+", unit: "MT", label: "Annual Capacity", short: "MT Capacity", note: "Twin & single screw extrusion", tone: YELLOW },
   { icon: Users, to: 500, suffix: "+", label: "Industrial Clients", short: "Happy Clients", note: "Brands across India", tone: CYAN },
+  { icon: Factory, to: 5000, suffix: "+", unit: "MT", label: "Annual Capacity", short: "MT Capacity", note: "Twin & single screw extrusion", tone: YELLOW },
   { icon: Truck, to: 105, suffix: "+", label: "Distributors", note: "Pan-India supply network", tone: ROYAL },
 ];
 

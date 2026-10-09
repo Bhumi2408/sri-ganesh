@@ -7,12 +7,12 @@ import { Reveal } from "./ui";
 
 // Granule close-ups are cropped from the product photos; parts are applications listed in lib/products.js.
 const pairs = [
-  { code: "PC", slug: "pc", accent: "#1e5eff", before: "pc-white", after: "led", part: "LED Panels & Downlights" },
-  { code: "PC", slug: "pc", accent: "#1e5eff", before: "pc-grey", after: "meter", part: "Meter Boxes" },
-  { code: "ABS", slug: "abs", accent: "#e11d48", before: "abs-white", after: "gangbox", part: "Modular Gang Boxes" },
-  { code: "ABS", slug: "abs", accent: "#e11d48", before: "abs-black", after: "setupbox", part: "Set-top Boxes" },
-  { code: "PBT", slug: "pbt", accent: "#4caf27", before: "pbt-grey", after: "mcb", part: "MCB Housings" },
-  { code: "PBT", slug: "pbt", accent: "#4caf27", before: "pbt-black", after: "lamp", part: "Lamp Holders" },
+  { code: "PC", slug: "pc", accent: "#1e5eff", before: "white-pc", after: "led", part: "LED Panels & Downlights" },
+  { code: "PC", slug: "pc", accent: "#1e5eff", before: "grey-pc", after: "meter", part: "Meter Boxes" },
+  { code: "ABS", slug: "abs", accent: "#e11d48", before: "white-abs", after: "gangbox", part: "Modular Gang Boxes" },
+  { code: "ABS", slug: "abs", accent: "#e11d48", before: "black-abs", after: "setupbox", part: "Set-top Boxes" },
+  { code: "PBT", slug: "pbt", accent: "#4caf27", before: "grey-pbt", after: "mcb", part: "MCB Housings" },
+  { code: "PBT", slug: "pbt", accent: "#4caf27", before: "black-pbt", after: "lamp", part: "Lamp Holders" },
 ];
 
 const src = (name) => `/transformation/${name}.webp`;
@@ -21,10 +21,10 @@ const src = (name) => `/transformation/${name}.webp`;
 function Compare({ p }) {
   const [pos, setPos] = useState(50);
   return (
-    <div className="group relative aspect-[4/3] select-none overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
+    <div className="group relative aspect-[16/9] select-none overflow-hidden rounded-2xl bg-white shadow-[0_20px_40px_-28px_rgba(15,23,42,0.35)] ring-1 ring-slate-200">
       {/* the part sits in the right half so it is fully visible at the default split */}
       <div className="absolute inset-y-0 left-1/2 right-0">
-        <Image src={src(p.after)} alt={p.part} fill sizes="(min-width: 1024px) 200px, (min-width: 640px) 25vw, 50vw" className="object-contain p-4 sm:p-5" />
+        <Image src={src(p.after)} alt={p.part} fill sizes="(min-width: 1024px) 200px, (min-width: 640px) 25vw, 50vw" className="object-contain p-3 sm:p-4" />
       </div>
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         <Image src={src(p.before)} alt={`${p.code} granules`} fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="object-cover" />
@@ -64,9 +64,10 @@ function Compare({ p }) {
 
 export default function Transformation() {
   return (
-    <section id="transformation" className="relative bg-white py-20 font-label sm:py-24">
+    <section id="transformation" className="relative overflow-hidden bg-white py-20 font-label sm:py-24">
+      <Image src="/quality-bg.webp" alt="" aria-hidden="true" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-      <div className="mx-auto max-w-7xl px-5">
+      <div className="relative mx-auto max-w-7xl px-5">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <div className="flex items-center justify-center gap-3">
@@ -86,7 +87,7 @@ export default function Transformation() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {pairs.map((p, i) => (
             <Reveal key={p.before} i={(i % 3) * 0.5}>
               <Compare p={p} />

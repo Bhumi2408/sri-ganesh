@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Table2, BarChart3 } from "lucide-react";
 import { Reveal } from "./ui";
 
-// TODO: typical datasheet values (PBT = 30% glass filled) — replace with SGP's own test data.
+// HDT and processing ranges confirmed by SGP (PBT = 20% glass filled); Vicat / continuous use are typical datasheet values.
 // Series colours are validated for colour-blind separation on white.
 const polymers = [
   {
@@ -15,7 +15,7 @@ const polymers = [
     hdt: 132,
     vicat: 145,
     cont: 125,
-    melt: [280, 320],
+    melt: [280, 300],
     best: "Heat stability with impact strength — LED housings, switches and covers.",
   },
   {
@@ -26,18 +26,18 @@ const polymers = [
     hdt: 95,
     vicat: 100,
     cont: 80,
-    melt: [220, 260],
+    melt: [200, 220],
     best: "Lowest processing temperature — economical for everyday moulded parts.",
   },
   {
     code: "PBT",
-    name: "PBT · 30% glass filled",
-    short: "PBT GF30",
+    name: "PBT · 20% glass filled",
+    short: "PBT GF20",
     color: "#1baf7a",
     hdt: 205,
     vicat: 215,
     cont: 140,
-    melt: [240, 270],
+    melt: [230, 250],
     best: "Highest heat resistance — ideal near hot contacts, lamp holders and MCBs.",
   },
 ];
@@ -356,7 +356,7 @@ export default function ThermalProperties() {
         </div>
 
         <p className="mt-6 text-xs text-slate-400">
-          Typical values for standard grades (PBT shown as 30% glass filled). Actual properties vary by grade — ask for
+          Typical values for standard grades (PBT shown as 20% glass filled). Actual properties vary by grade — ask for
           the datasheet of your specific grade.
         </p>
       </div>
