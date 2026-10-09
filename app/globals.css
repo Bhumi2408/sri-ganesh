@@ -5,7 +5,6 @@
   --color-brand-green: #7cc242;
   --color-ink: #05070d;
   --font-display: var(--font-poppins), ui-sans-serif, system-ui;
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-label: var(--font-inter), ui-sans-serif, system-ui;
   --animate-marquee: marquee 35s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
@@ -20,6 +19,13 @@
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
+}
+
+/* every heading uses Poppins, even inside Inter (font-label) sections */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
 }
 
 /* ---------- mobile (iOS Safari / Android Chrome) ---------- */

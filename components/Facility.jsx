@@ -55,7 +55,6 @@ export default function Facility() {
   return (
     <section id="facility" className="relative overflow-hidden bg-white py-20 font-label sm:py-28">
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-      <div aria-hidden="true" className="absolute -right-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#1e5eff]/[0.05] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         {/* ---------- header ---------- */}
@@ -65,11 +64,11 @@ export default function Facility() {
               <Eyebrow>Manufacturing Setup</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
                 Advanced extrusion,{" "}
-                <em className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">
+                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">
                   precise
-                </em>{" "}
+                </span>{" "}
                 results.
               </h2>
             </Reveal>
@@ -117,7 +116,7 @@ export default function Facility() {
                 <p className="relative text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-200/80">
                   Annual production capacity
                 </p>
-                <p className="relative mt-3 flex items-baseline font-serif text-5xl font-semibold leading-none sm:text-6xl">
+                <p className="relative mt-3 flex items-baseline font-display text-5xl font-semibold leading-none sm:text-6xl">
                   <Counter to={5000} />
                   <span className="ml-1 text-[#7cc242]">+</span>
                   <span className="ml-2 font-label text-base font-semibold tracking-wider text-blue-200/80">MT</span>
@@ -136,7 +135,7 @@ export default function Facility() {
                       <p className="font-semibold text-slate-900">{s.label}</p>
                       <p className="text-sm text-slate-500">{s.note}</p>
                     </div>
-                    <span className="font-serif text-3xl font-semibold text-[#0b1530]">{s.value}</span>
+                    <span className="font-display text-3xl font-semibold text-[#0b1530]">{s.value}</span>
                   </li>
                 ))}
               </ul>
@@ -150,7 +149,7 @@ export default function Facility() {
             <Eyebrow>How we work</Eyebrow>
           </Reveal>
           <Reveal i={1}>
-            <h3 className="mt-5 font-serif text-2xl font-medium tracking-tight text-[#0b1530] sm:text-3xl">
+            <h3 className="mt-5 font-display text-2xl font-medium tracking-tight text-[#0b1530] sm:text-3xl">
               From resin to ready-to-mould granules.
             </h3>
           </Reveal>
@@ -163,7 +162,7 @@ export default function Facility() {
                     <span className="relative grid h-12 w-12 place-items-center rounded-full border border-slate-200 bg-white text-[#1e5eff] shadow-sm">
                       <p.icon className="h-5 w-5" />
                     </span>
-                    <span className="relative bg-white pr-3 font-serif text-sm italic text-slate-400">Step 0{i + 1}</span>
+                    <span className="relative bg-white pr-3 font-display text-sm text-slate-400">Step 0{i + 1}</span>
                   </div>
                   <h4 className="mt-5 font-semibold text-slate-900">{p.title}</h4>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{p.text}</p>
@@ -180,7 +179,7 @@ export default function Facility() {
               <Eyebrow>Lab · Quality Control</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h3 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl">
+              <h3 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl">
                 In-house polymer testing lab.
               </h3>
             </Reveal>

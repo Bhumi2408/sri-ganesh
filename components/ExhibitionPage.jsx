@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Reveal } from "./ui";
-import { Eyebrow, VideoCard, exhibitionImages, exhibitionVideos } from "./Exhibition";
+import { Eyebrow, VideoCard, MobileCarousel, exhibitionImages, exhibitionVideos } from "./Exhibition";
 
 export default function ExhibitionPage() {
   const wide = exhibitionVideos.filter((v) => !v.portrait);
@@ -36,13 +36,14 @@ export default function ExhibitionPage() {
           <Reveal>
             <Eyebrow>Highlights</Eyebrow>
           </Reveal>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {wide.map((v, i) => (
-              <Reveal key={v.src} i={i}>
-                <VideoCard {...v} label={`Highlight 0${i + 1}`} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal i={1} className="mt-8">
+            <MobileCarousel
+              items={wide}
+              itemClass="w-[88%]"
+              gridClass="md:grid-cols-2"
+              render={(v, i) => <VideoCard {...v} label={`Highlight 0${i + 1}`} />}
+            />
+          </Reveal>
         </div>
 
         {/* ---------- clips ---------- */}
@@ -50,13 +51,13 @@ export default function ExhibitionPage() {
           <Reveal>
             <Eyebrow>From the floor</Eyebrow>
           </Reveal>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
-            {tall.map((v, i) => (
-              <Reveal key={v.src} i={i}>
-                <VideoCard {...v} label={`Clip 0${i + 1}`} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal i={1} className="mt-8">
+            <MobileCarousel
+              items={tall}
+              gridClass="sm:grid-cols-2 lg:grid-cols-4"
+              render={(v, i) => <VideoCard {...v} label={`Clip 0${i + 1}`} />}
+            />
+          </Reveal>
         </div>
       </div>
     </section>

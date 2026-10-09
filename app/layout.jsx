@@ -1,19 +1,13 @@
-import { Poppins, Fraunces, Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import QuotePopup from "@/components/QuotePopup";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-poppins",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
 });
 
 const inter = Inter({
@@ -41,11 +35,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <body className="font-display antialiased">
         <Navbar />
         <main className="relative overflow-x-hidden">{children}</main>
         <Footer />
+        <QuotePopup />
       </body>
     </html>
   );

@@ -61,7 +61,7 @@ export default function Footer() {
       <div className="relative border-b border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="font-serif text-2xl font-medium tracking-tight sm:text-3xl">Need PC, ABS or PBT granules?</p>
+            <p className="font-display text-2xl font-medium tracking-tight sm:text-3xl">Need PC, ABS or PBT granules?</p>
             <p className="mt-1.5 text-sm text-blue-100/70">Share your grade, colour and quantity — we&apos;ll send the right compound.</p>
           </div>
           <div className="flex flex-wrap gap-3">

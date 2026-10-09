@@ -31,9 +31,8 @@ const details = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[#f6f8fb] py-20 font-label sm:py-28">
+    <section id="contact" className="relative overflow-hidden bg-white py-20 font-label sm:py-28">
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-      <div aria-hidden="true" className="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-[#7cc242]/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <Reveal>
@@ -56,9 +55,9 @@ export default function Contact() {
                   <span className="h-px w-10 bg-[#7cc242]" />
                   <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7cc242]">Contact</span>
                 </div>
-                <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
+                <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
                   Let&apos;s build something{" "}
-                  <em className="font-normal text-[#8be04e]">durable.</em>
+                  <span className="font-normal text-[#8be04e]">durable.</span>
                 </h2>
                 <p className="mt-4 max-w-sm leading-relaxed text-blue-100/80">
                   Tell us your grade, volume and application — our team will get back with the right compound.
@@ -106,7 +105,7 @@ export default function Contact() {
 
             {/* ---------- form ---------- */}
             <div className="p-6 sm:p-10 lg:p-12">
-              <h3 className="font-serif text-2xl font-medium tracking-tight text-[#0b1530] sm:text-3xl">Request a quote</h3>
+              <h3 className="font-display text-2xl font-medium tracking-tight text-[#0b1530] sm:text-3xl">Request a quote</h3>
               <p className="mt-2 text-sm text-slate-500">
                 Fields marked * are required.{" "}
                 <Link href="/contact" className="font-semibold text-[#1e5eff] underline-offset-4 hover:underline">

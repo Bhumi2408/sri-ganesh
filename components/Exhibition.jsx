@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { Play, ArrowUpRight } from "lucide-react";
 import { Reveal } from "./ui";
@@ -80,14 +80,68 @@ export function VideoCard({ src, poster, portrait, label }) {
   );
 }
 
+// Swipeable carousel with dots on mobile; a plain grid (gridClass) from sm up.
+export function MobileCarousel({ items, render, gridClass = "", itemClass = "w-[72%]" }) {
+  const track = useRef(null);
+  const [active, setActive] = useState(0);
+
+  // active slide = the one whose centre is closest to the track's centre
+  const onScroll = () => {
+    const el = track.current;
+    if (!el) return;
+    const mid = el.scrollLeft + el.clientWidth / 2;
+    let best = 0;
+    let bestD = Infinity;
+    [...el.children].forEach((c, i) => {
+      const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    setActive(best);
+  };
+  const goTo = (i) => {
+    const el = track.current;
+    const c = el?.children[i];
+    if (c) el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2, behavior: "smooth" });
+  };
+
+  return (
+    <>
+      <div
+        ref={track}
+        onScroll={onScroll}
+        className={`relative -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden ${gridClass}`}
+      >
+        {items.map((item, i) => (
+          <div key={i} className={`${itemClass} shrink-0 snap-center sm:w-auto`}>
+            {render(item, i)}
+          </div>
+        ))}
+      </div>
+      <div className="mt-5 flex justify-center gap-2 sm:hidden">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Show video ${i + 1}`}
+            onClick={() => goTo(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${active === i ? "w-6 bg-[#1e5eff]" : "w-2 bg-slate-300"}`}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
+
 // Homepage teaser: three portrait clips + link to the full page.
 export default function Exhibition() {
   const clips = exhibitionVideos.filter((v) => v.portrait).slice(0, 3);
 
   return (
-    <section id="exhibition" className="relative overflow-hidden bg-[#f6f8fb] py-20 font-label sm:py-28">
+    <section id="exhibition" className="relative overflow-hidden bg-white py-20 font-label sm:py-28">
       <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
-      <div aria-hidden="true" className="absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full bg-[#7cc242]/[0.08] blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
@@ -96,11 +150,11 @@ export default function Exhibition() {
               <Eyebrow>Exhibitions</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
                 Meet us on the{" "}
-                <em className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">
+                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">
                   show floor.
-                </em>
+                </span>
               </h2>
             </Reveal>
           </div>
@@ -120,13 +174,13 @@ export default function Exhibition() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-3">
-          {clips.map((v, i) => (
-            <Reveal key={v.src} i={i}>
-              <VideoCard {...v} label={`Exhibition clip 0${i + 1}`} />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal i={1} className="mt-12">
+          <MobileCarousel
+            items={clips}
+            gridClass="sm:grid-cols-3"
+            render={(v, i) => <VideoCard {...v} label={`Exhibition clip 0${i + 1}`} />}
+          />
+        </Reveal>
       </div>
     </section>
   );

@@ -99,7 +99,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="absolute -bottom-5 -right-2 rounded-2xl border border-slate-100 bg-white px-5 py-4 shadow-[0_24px_48px_-24px_rgba(15,23,42,0.4)] sm:-right-6">
-                <p className="font-serif text-4xl font-semibold leading-none text-[#0b1530]">
+                <p className="font-display text-4xl font-semibold leading-none text-[#0b1530]">
                   15<span className="text-[#4caf27]">+</span>
                 </p>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Years of excellence</p>
@@ -112,7 +112,7 @@ export default function AboutPage() {
               <Eyebrow>Our Story</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
                 A reliable partner for engineering polymers.
               </h2>
             </Reveal>
@@ -150,7 +150,7 @@ export default function AboutPage() {
           {numbers.map((n, i) => (
             <Reveal key={n.label} i={i} className="h-full">
               <div className={`h-full px-6 py-8 sm:px-8 sm:py-10 ${i % 2 === 0 ? "bg-[#0b1f4d] text-white" : "bg-[#eef4ff] text-[#0b1530]"} ${i === 2 ? "max-lg:bg-[#eef4ff] max-lg:text-[#0b1530]" : ""} ${i === 3 ? "max-lg:bg-[#0b1f4d] max-lg:text-white" : ""}`}>
-                <p className="flex items-baseline font-serif text-4xl font-semibold leading-none sm:text-5xl">
+                <p className="flex items-baseline font-display text-4xl font-semibold leading-none sm:text-5xl">
                   <Counter to={n.to} />
                   <span className="text-[#7cc242]">+</span>
                   {n.unit && <span className="ml-1.5 font-label text-sm font-semibold opacity-60">{n.unit}</span>}
@@ -164,7 +164,7 @@ export default function AboutPage() {
       </section>
 
       {/* ---------- mission / vision / values ---------- */}
-      <section className="relative bg-[#f6f8fb] py-16 sm:py-24">
+      <section className="relative border-t border-slate-200 bg-white py-16 sm:py-24">
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
         <div className="mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
@@ -172,7 +172,7 @@ export default function AboutPage() {
               <Eyebrow>What drives us</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                 Purpose behind every pellet.
               </h2>
             </Reveal>
@@ -201,7 +201,7 @@ export default function AboutPage() {
               <Eyebrow>Why SGP</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                 What sets us apart.
               </h2>
             </Reveal>
@@ -235,7 +235,7 @@ export default function AboutPage() {
       </section>
 
       {/* ---------- industries ---------- */}
-      <section className="relative bg-[#f6f8fb] py-16 sm:py-24">
+      <section className="relative border-t border-slate-200 bg-white py-16 sm:py-24">
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
         <div className="mx-auto max-w-7xl px-5">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 <Eyebrow>Industries we serve</Eyebrow>
               </Reveal>
               <Reveal i={1}>
-                <h2 className="mt-5 max-w-xl font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+                <h2 className="mt-5 max-w-xl font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                   Inside the products you use every day.
                 </h2>
               </Reveal>
@@ -282,7 +282,7 @@ export default function AboutPage() {
           <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#eaf1ff] via-[#f3f8ff] to-[#eaf6e1] px-6 py-12 text-center ring-1 ring-slate-200 sm:px-12 sm:py-16">
             <div aria-hidden="true" className="absolute -left-16 -top-16 h-56 w-56 rounded-full bg-[#1e5eff]/10 blur-3xl" />
             <div aria-hidden="true" className="absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-[#7cc242]/20 blur-3xl" />
-            <h2 className="relative mx-auto max-w-2xl font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+            <h2 className="relative mx-auto max-w-2xl font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
               Looking for a dependable polymer supplier?
             </h2>
             <p className="relative mx-auto mt-4 max-w-xl text-slate-600">

@@ -45,11 +45,11 @@ const lab = [
   { icon: Palette, label: "Colour Matching Cabinet", use: "Visual shade approval" },
 ];
 
-function Eyebrow({ children, light = false }) {
+function Eyebrow({ children }) {
   return (
     <div className="flex items-center gap-3">
-      <span className={`h-px w-10 ${light ? "bg-[#8be04e]" : "bg-[#1e5eff]"}`} />
-      <span className={`text-xs font-semibold uppercase tracking-[0.3em] ${light ? "text-[#8be04e]" : "text-[#1e5eff]"}`}>
+      <span className="h-px w-10 bg-[#1e5eff]" />
+      <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1e5eff]">
         {children}
       </span>
     </div>
@@ -59,25 +59,16 @@ function Eyebrow({ children, light = false }) {
 export default function FacilityPage() {
   return (
     <div className="font-label">
-      {/* ---------- machine + numbers (dark band) ---------- */}
-      <section className="relative overflow-hidden bg-[#0b1f4d] pb-16 pt-14 text-white sm:pb-20 sm:pt-20">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-60 [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
-          }}
-        />
-        <div aria-hidden="true" className="absolute left-1/2 top-1/3 h-72 w-[70%] -translate-x-1/2 rounded-full bg-[#1e5eff]/30 blur-3xl" />
+      {/* ---------- machine + numbers ---------- */}
+      <section className="relative overflow-hidden bg-white pb-16 pt-14 text-[#0b1530] sm:pb-20 sm:pt-20">
 
         <div className="relative mx-auto max-w-7xl px-5">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <div className="flex justify-center">
-                <Eyebrow light>Production floor</Eyebrow>
+                <Eyebrow>Production floor</Eyebrow>
               </div>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
                 Where resin becomes ready-to-mould granules.
               </h2>
             </div>
@@ -85,7 +76,7 @@ export default function FacilityPage() {
 
           <Reveal i={1}>
             <div className="relative mx-auto mt-10 max-w-5xl">
-              <div className="absolute inset-x-[10%] bottom-2 h-10 rounded-full bg-black/50 blur-2xl" />
+              <div className="absolute inset-x-[10%] bottom-2 h-10 rounded-full bg-slate-900/20 blur-2xl" />
               <Image
                 src="/sgp/machineimage.webp"
                 alt="Twin screw extruder used for polymer compounding"
@@ -97,18 +88,18 @@ export default function FacilityPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-2 overflow-hidden rounded-3xl border border-white/10 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 overflow-hidden rounded-3xl border border-slate-200 lg:grid-cols-4">
             {numbers.map((n, i) => (
               <Reveal key={n.label} i={i} className="h-full">
                 <div
-                  className={`h-full border-white/10 p-6 text-center sm:p-8 ${i % 2 === 0 ? "border-r" : ""} ${i < 2 ? "border-b lg:border-b-0" : ""} ${i === 1 ? "lg:border-r" : ""}`}
+                  className={`h-full border-slate-200 p-6 text-center sm:p-8 ${i % 2 === 0 ? "border-r" : ""} ${i < 2 ? "border-b lg:border-b-0" : ""} ${i === 1 ? "lg:border-r" : ""}`}
                 >
-                  <p className="flex items-baseline justify-center font-serif text-4xl font-semibold leading-none sm:text-5xl">
+                  <p className="flex items-baseline justify-center font-display text-4xl font-semibold leading-none sm:text-5xl">
                     <Counter to={n.to} />
                     {n.suffix && <span className="text-[#7cc242]">{n.suffix}</span>}
-                    {n.unit && <span className="ml-1.5 font-label text-sm font-semibold text-blue-200/70">{n.unit}</span>}
+                    {n.unit && <span className="ml-1.5 font-label text-sm font-semibold text-slate-400">{n.unit}</span>}
                   </p>
-                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-100/70">{n.label}</p>
+                  <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{n.label}</p>
                 </div>
               </Reveal>
             ))}
@@ -124,7 +115,7 @@ export default function FacilityPage() {
               <Eyebrow>The process</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                 Four checkpoints, one standard.
               </h2>
             </Reveal>
@@ -146,7 +137,7 @@ export default function FacilityPage() {
                   <span className="absolute -left-[3.45rem] top-0 grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-[#1e5eff] to-[#1e4fd8] text-white shadow-lg shadow-[#1e5eff]/30 ring-4 ring-white sm:-left-[4.45rem]">
                     <j.icon className="h-5 w-5" />
                   </span>
-                  <p className="font-serif text-sm italic text-[#4caf27]">Stage 0{i + 1}</p>
+                  <p className="font-display text-sm text-[#4caf27]">Stage 0{i + 1}</p>
                   <h3 className="mt-1 text-xl font-semibold text-slate-900">{j.title}</h3>
                   <p className="mt-2 max-w-lg leading-relaxed text-slate-500">{j.text}</p>
                 </li>
@@ -157,7 +148,7 @@ export default function FacilityPage() {
       </section>
 
       {/* ---------- lab equipment ---------- */}
-      <section className="relative bg-[#f6f8fb] py-16 sm:py-24">
+      <section className="relative border-t border-slate-200 bg-white py-16 sm:py-24">
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
         <div className="mx-auto max-w-7xl px-5">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -166,7 +157,7 @@ export default function FacilityPage() {
                 <Eyebrow>Testing laboratory</Eyebrow>
               </Reveal>
               <Reveal i={1}>
-                <h2 className="mt-5 max-w-xl font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+                <h2 className="mt-5 max-w-xl font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                   Eight instruments behind every batch.
                 </h2>
               </Reveal>
@@ -190,7 +181,7 @@ export default function FacilityPage() {
                     <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#eef4ff] text-[#1e5eff] transition-colors group-hover:bg-[#1e5eff] group-hover:text-white">
                       <t.icon className="h-5 w-5" />
                     </span>
-                    <span className="font-serif text-2xl font-semibold text-slate-200">0{i + 1}</span>
+                    <span className="font-display text-2xl font-semibold text-slate-200">0{i + 1}</span>
                   </div>
                   <h3 className="mt-5 text-sm font-semibold leading-snug text-slate-900 sm:text-base">{t.label}</h3>
                   <p className="mt-1 text-xs text-slate-500 sm:text-sm">{t.use}</p>
@@ -206,7 +197,7 @@ export default function FacilityPage() {
         <Reveal>
           <div className="mx-auto grid max-w-7xl items-center gap-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-gradient-to-r from-[#eef4ff] to-[#f1f8ea] p-8 sm:p-12 md:grid-cols-[1.5fr_1fr]">
             <div>
-              <h2 className="font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+              <h2 className="font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                 See the plant for yourself.
               </h2>
               <p className="mt-3 max-w-lg text-slate-600">

@@ -17,9 +17,7 @@ const PackagingSection = () => {
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
-      {/* Background Decoration */}
-      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-blue-50 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-green-50 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">

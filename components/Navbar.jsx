@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { Logo } from "./ui";
+import { openQuote } from "./QuotePopup";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,6 +18,32 @@ const links = [
 
 const PHONE = { label: "+91 98180 58610", href: "tel:+919818058610" };
 const EMAIL = { label: "info@shriganeshpolymer.in", href: "mailto:info@shriganeshpolymer.in" };
+
+// scrolling company-name strip; also rendered under the hero video on mobile
+export function NameMarquee({ className = "flex" }) {
+  return (
+    <div className={`relative h-8 items-center overflow-hidden bg-[#0b1f4d] ${className}`}>
+      <div className="flex w-max shrink-0 animate-marquee motion-reduce:animate-none">
+        {[0, 1].map((copy) => (
+          <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span key={i} className="flex items-center whitespace-nowrap">
+                <span
+                  className={`px-5 text-[11px] font-semibold uppercase tracking-[0.3em] sm:text-xs ${
+                    i % 2 ? "text-[#8be04e]" : "text-white"
+                  }`}
+                >
+                  Shri Ganesh Polymer
+                </span>
+                <span className="h-1.5 w-1.5 rotate-45 bg-[#7cc242]" />
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -124,6 +151,10 @@ export default function Navbar() {
             </a>
             <Link
               href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                openQuote();
+              }}
               className="group hidden items-center gap-2 rounded-full bg-brand-green py-1.5 pl-5 pr-1.5 text-sm font-semibold text-ink shadow-lg shadow-brand-green/30 transition hover:shadow-brand-green/50 md:inline-flex"
             >
               Get a Quote
@@ -153,27 +184,8 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* name marquee */}
-        <div className="relative flex h-8 items-center overflow-hidden bg-[#0b1f4d]">
-          <div className="flex w-max shrink-0 animate-marquee motion-reduce:animate-none">
-            {[0, 1].map((copy) => (
-              <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 items-center">
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <span key={i} className="flex items-center whitespace-nowrap">
-                    <span
-                      className={`px-5 text-[11px] font-semibold uppercase tracking-[0.3em] sm:text-xs ${
-                        i % 2 ? "text-[#8be04e]" : "text-white"
-                      }`}
-                    >
-                      Shri Ganesh Polymer
-                    </span>
-                    <span className="h-1.5 w-1.5 rotate-45 bg-[#7cc242]" />
-                  </span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* name marquee — on the home page it sits under the hero video on mobile instead */}
+        <NameMarquee className={pathname === "/" ? "hidden sm:flex" : "flex"} />
 
         {/* mobile menu */}
         <AnimatePresence>
@@ -213,7 +225,11 @@ export default function Navbar() {
                 </ul>
                 <Link
                   href="/contact"
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpen(false);
+                    openQuote();
+                  }}
                   className="mt-4 flex items-center justify-center gap-2 rounded-full bg-brand-green py-3.5 font-semibold text-ink"
                 >
                   Get a Quote <ArrowUpRight className="h-4 w-4" />

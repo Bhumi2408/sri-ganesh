@@ -27,7 +27,8 @@ const up = (i = 0) => ({
 function GlobeInHands() {
   return (
     <div
-      className="relative mx-auto aspect-[817/772] w-full max-w-[560px]"
+      // the globe sits right of centre in the photo; on mobile shift it so the globe is centred
+      className="relative mx-auto aspect-[817/772] w-full max-w-[560px] max-sm:-translate-x-[9.2%]"
       style={{
         WebkitMaskImage:
           "linear-gradient(to right, transparent 0%, #000 10%, #000 88%, transparent 100%), linear-gradient(to bottom, #000 80%, transparent 100%)",

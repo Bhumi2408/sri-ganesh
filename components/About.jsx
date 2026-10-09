@@ -23,10 +23,7 @@ export default function About() {
 
   return (
     <section id="about" className="relative overflow-hidden bg-white py-20 font-label">
-      {/* ambient backdrop */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-      <div className="absolute -left-40 top-24 h-[28rem] w-[28rem] rounded-full bg-[#1e5eff]/[0.06] blur-3xl" />
-      <div className="absolute -right-32 bottom-0 h-[24rem] w-[24rem] rounded-full bg-[#7cc242]/[0.10] blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1fr_1.05fr] lg:items-start lg:gap-x-20 lg:gap-y-0">
         {/* ---------- heading (on mobile the image follows it) ---------- */}
@@ -39,9 +36,9 @@ export default function About() {
           </Reveal>
 
           <Reveal i={1}>
-            <h2 className="mt-5 max-w-xl font-serif text-[1.85rem] font-medium leading-[1.15] tracking-tight text-[#0b1530] md:text-4xl">
+            <h2 className="mt-5 max-w-xl font-display text-[1.85rem] font-medium leading-[1.15] tracking-tight text-[#0b1530] md:text-4xl">
               Polymers{" "}
-              <em className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">crafted</em>{" "}
+              <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">crafted</span>{" "}
               with precision.
             </h2>
           </Reveal>
@@ -51,7 +48,7 @@ export default function About() {
         <Reveal className="lg:sticky lg:top-28 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <div ref={stageRef} className="relative mx-auto max-w-[30rem] pb-8 pt-4 sm:pb-10 sm:pt-6 lg:max-w-none">
             {/* arch */}
-            <div className="relative mx-auto aspect-[4/5] w-[88%] overflow-hidden rounded-t-[999px] rounded-b-[2.5rem] bg-gradient-to-b from-[#dbe8ff] via-[#eef4ff] to-[#f4f9ef] shadow-[0_40px_80px_-40px_rgba(30,94,255,0.45)] ring-1 ring-white">
+            <div className="relative mx-auto aspect-[4/5] w-[88%] overflow-hidden bg-gradient-to-b from-[#dbe8ff] via-[#eef4ff] to-[#f4f9ef] shadow-[0_40px_80px_-40px_rgba(30,94,255,0.45)] ring-1 ring-white">
               <div
                 className="absolute inset-0 [background-size:36px_36px] [mask-image:linear-gradient(to_bottom,black,transparent_80%)]"
                 style={{ backgroundImage: "linear-gradient(rgba(11,18,32,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,18,32,0.05) 1px, transparent 1px)" }}
@@ -107,7 +104,7 @@ export default function About() {
                   <textPath href="#seal-path" textLength="272" lengthAdjust="spacing">{SEAL}</textPath>
                 </text>
               </svg>
-              <span className="relative grid h-9 w-9 place-items-center rounded-full bg-[#7cc242] font-serif text-sm sm:h-12 sm:w-12 sm:text-lg font-semibold italic text-[#0b1f4d]">
+              <span className="relative grid h-9 w-9 place-items-center rounded-full bg-[#7cc242] font-display text-sm sm:h-12 sm:w-12 sm:text-lg font-semibold text-[#0b1f4d]">
                 SGP
               </span>
             </div>
@@ -132,7 +129,7 @@ export default function About() {
                     <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[#eaf1ff] to-[#f1f8ea] text-[#1e5eff] transition duration-300 group-hover:from-[#1e5eff] group-hover:to-[#1e4fd8] group-hover:text-white">
                       <p.icon className="h-5 w-5" />
                     </span>
-                    <span className="font-serif text-sm italic text-slate-300">0{i + 1}</span>
+                    <span className="font-display text-sm text-slate-300">0{i + 1}</span>
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-slate-900">{p.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{p.text}</p>

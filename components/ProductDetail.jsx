@@ -21,15 +21,7 @@ export default function ProductDetail({ slug }) {
   return (
     <div className="font-label">
       {/* ---------- hero ---------- */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#eef4ff] via-[#f6f9fd] to-white pb-14 pt-[calc(97px+2.5rem)] md:pb-20 md:pt-[calc(137px+3rem)]">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 [background-size:44px_44px] [mask-image:radial-gradient(ellipse_at_top,black_20%,transparent_70%)]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(11,18,32,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,18,32,0.05) 1px, transparent 1px)",
-          }}
-        />
+      <section className="relative overflow-hidden bg-white pb-14 pt-[calc(97px+2.5rem)] md:pb-20 md:pt-[calc(137px+3rem)]">
         <div className="relative mx-auto max-w-7xl px-5">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-slate-500">
             <Link href="/" className="transition hover:text-[#1e5eff]">Home</Link>
@@ -46,7 +38,7 @@ export default function ProductDetail({ slug }) {
                   <Image src={p.image} alt={`${p.code} granules in different colours`} fill priority sizes="(min-width: 1024px) 560px, 100vw" className="object-contain" />
                 </div>
                 <span
-                  className="absolute left-5 top-5 rounded-xl px-3.5 py-2 font-serif text-3xl font-semibold leading-none text-white shadow-lg sm:left-7 sm:top-7"
+                  className="absolute left-5 top-5 rounded-xl px-3.5 py-2 font-display text-3xl font-semibold leading-none text-white shadow-lg sm:left-7 sm:top-7"
                   style={{ background: p.accent }}
                 >
                   {p.code}
@@ -64,7 +56,7 @@ export default function ProductDetail({ slug }) {
                 </span>
               </Reveal>
               <Reveal i={1}>
-                <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.1] tracking-tight text-[#0b1530] sm:text-5xl">
+                <h1 className="mt-5 font-display text-4xl font-medium leading-[1.1] tracking-tight text-[#0b1530] sm:text-5xl">
                   {p.name} <span className="text-slate-400">({p.code})</span>
                 </h1>
               </Reveal>
@@ -122,14 +114,14 @@ export default function ProductDetail({ slug }) {
             <div className="max-w-2xl">
               <Reveal><Eyebrow>Applications</Eyebrow></Reveal>
               <Reveal i={1}>
-                <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+                <h2 className="mt-5 font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                   Products made with our {p.code} granules.
                 </h2>
               </Reveal>
             </div>
             <Reveal i={2}>
               <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
-                <span className="font-serif text-lg font-semibold leading-none" style={{ color: p.accent }}>
+                <span className="font-display text-lg font-semibold leading-none" style={{ color: p.accent }}>
                   {p.applications.length}
                 </span>
                 applications &amp; counting
@@ -145,7 +137,7 @@ export default function ProductDetail({ slug }) {
                     className="relative aspect-[4/3] overflow-hidden"
                     style={{ background: `radial-gradient(circle at 50% 60%, #ffffff 0%, ${p.accent}12 70%, ${p.accent}22 100%)` }}
                   >
-                    <span className="absolute left-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full bg-white/90 font-serif text-xs font-semibold text-slate-500 shadow-sm backdrop-blur sm:left-4 sm:top-4">
+                    <span className="absolute left-3 top-3 z-10 grid h-8 w-8 place-items-center rounded-full bg-white/90 font-display text-xs font-semibold text-slate-500 shadow-sm backdrop-blur sm:left-4 sm:top-4">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <Image
@@ -190,7 +182,7 @@ export default function ProductDetail({ slug }) {
                 <div aria-hidden="true" className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-40 blur-3xl" style={{ background: p.accent }} />
                 <div className="relative">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8be04e]">Your part next?</p>
-                  <p className="mt-3 font-serif text-2xl font-medium leading-snug">
+                  <p className="mt-3 font-display text-2xl font-medium leading-snug">
                     Tell us what you mould — we&apos;ll suggest the right {p.code} grade.
                   </p>
                 </div>
@@ -207,7 +199,7 @@ export default function ProductDetail({ slug }) {
       </section>
 
       {/* ---------- other products ---------- */}
-      <section className="relative bg-[#f6f8fb] py-16 sm:py-20">
+      <section className="relative bg-white py-16 sm:py-20">
         <div className="absolute inset-x-0 top-0 h-px bg-slate-200" />
         <div className="mx-auto max-w-7xl px-5">
           <Reveal><Eyebrow>Explore more</Eyebrow></Reveal>
@@ -222,7 +214,7 @@ export default function ProductDetail({ slug }) {
                     <Image src={o.image} alt="" fill sizes="144px" className="object-contain" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="font-serif text-2xl font-semibold" style={{ color: o.accent }}>{o.code}</p>
+                    <p className="font-display text-2xl font-semibold" style={{ color: o.accent }}>{o.code}</p>
                     <p className="text-sm font-medium text-slate-800">{o.name}</p>
                     <p className="mt-1 hidden text-sm text-slate-500 sm:block">{o.desc}</p>
                   </div>

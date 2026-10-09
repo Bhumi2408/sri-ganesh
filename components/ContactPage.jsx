@@ -90,7 +90,6 @@ export default function ContactPage() {
 
       {/* ---------- form + map ---------- */}
       <section className="relative overflow-hidden bg-white py-16 sm:py-20">
-        <div aria-hidden="true" className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-[#7cc242]/10 blur-3xl" />
         <div className="relative mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.35fr_1fr] lg:gap-10">
           {/* form */}
           <Reveal>
@@ -99,7 +98,7 @@ export default function ContactPage() {
                 <span className="h-px w-10 bg-[#1e5eff]" />
                 <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1e5eff]">Enquiry form</span>
               </div>
-              <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
                 Request a quote
               </h2>
               <p className="mt-2 text-sm text-slate-500 sm:text-base">

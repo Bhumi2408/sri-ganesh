@@ -97,11 +97,11 @@ export default function Testimonials() {
             </div>
           </Reveal>
           <Reveal i={1}>
-            <h2 className="mt-5 font-serif text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Trusted by manufacturers{" "}
-              <em className="bg-gradient-to-r from-[#60a5fa] to-[#8be04e] bg-clip-text font-normal text-transparent">
+              <span className="bg-gradient-to-r from-[#60a5fa] to-[#8be04e] bg-clip-text font-normal text-transparent">
                 across India.
-              </em>
+              </span>
             </h2>
           </Reveal>
           <Reveal i={2}>
@@ -181,7 +181,7 @@ export default function Testimonials() {
                       {r.product}
                     </span>
                   </div>
-                  <blockquote className="mt-6 font-serif text-xl leading-relaxed text-slate-800 sm:text-2xl sm:leading-relaxed">
+                  <blockquote className="mt-6 font-display text-xl leading-relaxed text-slate-800 sm:text-2xl sm:leading-relaxed">
                     &ldquo;{r.text}&rdquo;
                   </blockquote>
                   <figcaption className="mt-8 flex items-center gap-4">

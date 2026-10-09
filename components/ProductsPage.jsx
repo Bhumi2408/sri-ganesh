@@ -19,11 +19,11 @@ const custom = [
   { icon: Truck, title: "Bulk supply", text: "Sealed bags dispatched on schedule, pan-India." },
 ];
 
-function Eyebrow({ children, light = false }) {
+function Eyebrow({ children }) {
   return (
     <div className="flex items-center gap-3">
-      <span className={`h-px w-10 ${light ? "bg-[#8be04e]" : "bg-[#1e5eff]"}`} />
-      <span className={`text-xs font-semibold uppercase tracking-[0.3em] ${light ? "text-[#8be04e]" : "text-[#1e5eff]"}`}>
+      <span className="h-px w-10 bg-[#1e5eff]" />
+      <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1e5eff]">
         {children}
       </span>
     </div>
@@ -44,7 +44,7 @@ function ProductRow({ p, i }) {
             >
               <span
                 aria-hidden="true"
-                className="absolute -bottom-6 right-4 select-none font-serif text-[9rem] font-semibold leading-none sm:text-[12rem]"
+                className="absolute -bottom-6 right-4 select-none font-display text-[9rem] font-semibold leading-none sm:text-[12rem]"
                 style={{ color: `${p.accent}14` }}
               >
                 {p.code}
@@ -69,7 +69,7 @@ function ProductRow({ p, i }) {
         {/* details */}
         <div className="min-w-0">
           <Reveal>
-            <p className="font-serif text-5xl font-semibold leading-none sm:text-6xl" style={{ color: p.accent }}>
+            <p className="font-display text-5xl font-semibold leading-none sm:text-6xl" style={{ color: p.accent }}>
               {p.code}
             </p>
             <h2 className="mt-2 text-xl font-semibold text-slate-900 sm:text-2xl">{p.name}</h2>
@@ -160,13 +160,13 @@ export default function ProductsPage() {
       </section>
 
       {/* ---------- comparison ---------- */}
-      <section id="compare" className="scroll-mt-28 bg-[#f6f8fb] py-16 sm:py-24">
+      <section id="compare" className="scroll-mt-28 border-t border-slate-200 bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5">
           <Reveal>
             <Eyebrow>Side by side</Eyebrow>
           </Reveal>
           <Reveal i={1}>
-            <h2 className="mt-5 max-w-2xl font-serif text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
+            <h2 className="mt-5 max-w-2xl font-display text-3xl font-medium tracking-tight text-[#0b1530] sm:text-4xl">
               Which polymer fits your part?
             </h2>
           </Reveal>
@@ -179,7 +179,7 @@ export default function ProductsPage() {
                     <th className="w-1/4 px-6 py-5" />
                     {products.map((p) => (
                       <th key={p.slug} className="px-6 py-5">
-                        <span className="font-serif text-2xl font-semibold" style={{ color: p.accent }}>
+                        <span className="font-display text-2xl font-semibold" style={{ color: p.accent }}>
                           {p.code}
                         </span>
                         <span className="mt-0.5 block text-xs font-medium text-slate-400">{p.tag}</span>
@@ -214,21 +214,19 @@ export default function ProductsPage() {
       </section>
 
       {/* ---------- custom orders ---------- */}
-      <section className="relative overflow-hidden bg-[#0b1f4d] py-16 text-white sm:py-24">
-        <div aria-hidden="true" className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#1e5eff]/30 blur-3xl" />
-        <div aria-hidden="true" className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#7cc242]/20 blur-3xl" />
+      <section className="relative overflow-hidden border-t border-slate-200 bg-white py-16 text-[#0b1530] sm:py-24">
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
           <div>
             <Reveal>
-              <Eyebrow light>Custom orders</Eyebrow>
+              <Eyebrow>Custom orders</Eyebrow>
             </Reveal>
             <Reveal i={1}>
-              <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
+              <h2 className="mt-5 font-display text-3xl font-medium tracking-tight sm:text-4xl">
                 Your grade, your colour — compounded to order.
               </h2>
             </Reveal>
             <Reveal i={2}>
-              <p className="mt-5 leading-relaxed text-blue-100/75">
+              <p className="mt-5 leading-relaxed text-slate-600">
                 Need a specific FR rating, glass-fill percentage or exact shade? We compound to your specification and
                 verify every batch before it ships.
               </p>
@@ -244,7 +242,7 @@ export default function ProductsPage() {
                 </Link>
                 <a
                   href="tel:+919818058610"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3.5 font-semibold transition hover:border-white hover:bg-white/10"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3.5 font-semibold transition hover:border-slate-900"
                 >
                   <Phone className="h-4 w-4" /> Call us
                 </a>
@@ -255,13 +253,13 @@ export default function ProductsPage() {
           <ol className="grid gap-4 sm:grid-cols-2">
             {custom.map((c, i) => (
               <Reveal key={c.title} i={i} className="h-full">
-                <li className="relative h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:bg-white/[0.08] sm:p-7">
-                  <span className="absolute right-6 top-5 font-serif text-4xl font-semibold text-white/10">0{i + 1}</span>
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#7cc242]/15 text-[#8be04e]">
+                <li className="relative h-full rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-35px_rgba(15,23,42,0.35)] transition hover:-translate-y-1 sm:p-7">
+                  <span className="absolute right-6 top-5 font-display text-4xl font-semibold text-slate-100">0{i + 1}</span>
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#7cc242]/15 text-[#3f9a1f]">
                     <c.icon className="h-5 w-5" />
                   </span>
                   <h3 className="mt-5 font-semibold">{c.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-blue-100/70">{c.text}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{c.text}</p>
                 </li>
               </Reveal>
             ))}
