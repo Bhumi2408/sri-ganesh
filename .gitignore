@@ -11,3 +11,6 @@ out.zip
 .DS_Store
 *.log
 .env*.local
+
+# full-size source photos (web copies live in public/gallery)
+/_originals/

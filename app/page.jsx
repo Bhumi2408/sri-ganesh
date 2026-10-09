@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 /* import About from "@/components/About"; */
 import Products from "@/components/Products";
 import ProductVideo from "@/components/ProductVideo";
+import PcColours from "@/components/PcColours";
 import Applications from "@/components/Applications";
 import Transformation from "@/components/Transformation";
 import PanIndia from "@/components/PanIndia";
@@ -14,6 +15,8 @@ import PackagingSection from "@/components/Packaging";
 import Testimonials from "@/components/Testimonials";
 import ThermalProperties from "@/components/ThermalProperties";
 import Exhibition from "@/components/Exhibition";
+import Gallery from "@/components/Gallery";
+import LabVideo from "@/components/LabVideo";
 
 export default function Home() {
   return (
@@ -25,17 +28,21 @@ export default function Home() {
 {/*       <About /> */}
       <Products />
       <ProductVideo />
-      <Applications />
+      <PcColours />
+      {/* <Applications /> */}
       <div className="max-sm:order-1">
         <Transformation />
         <PanIndia />
         <ThermalProperties />
+   
         {/* <Hero /> */}
     {/*     <Facility /> */}
       </div>
       <CertifiedTrust />
       <div className="max-sm:order-2">
         <PackagingSection />
+             <LabVideo />
+        <Gallery />
         <Exhibition />
         <Testimonials />
         <Contact />
