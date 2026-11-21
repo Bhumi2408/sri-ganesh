@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import AboutPage from "@/components/AboutPage";
 
 export const metadata = {
+  alternates: { canonical: "/about/" },
   title: "About Us",
   description:
     "Shri Ganesh Polymer is an ISO 9001 & 14001 certified manufacturer of PC, ABS and PBT engineering polymer granules based in Delhi.",

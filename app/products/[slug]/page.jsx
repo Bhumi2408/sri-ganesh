@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
     };
   }
   return {
+    alternates: { canonical: `/products/${p.slug}/` },
     title: `${p.code} Granules – ${p.name}`,
     description: `${p.desc} Used in ${p.apps}.`,
   };

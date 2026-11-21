@@ -2,7 +2,7 @@ import { products } from "@/lib/products";
 
 export const dynamic = "force-static";
 
-const SITE = "https://www.shriganeshpolymer.in";
+const SITE = "https://shriganeshpolymer.in";
 
 // trailingSlash export → every page lives at "/path/"
 export default function sitemap() {

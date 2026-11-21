@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import ContactPage from "@/components/ContactPage";
 
 export const metadata = {
+  alternates: { canonical: "/contact/" },
   title: "Contact",
   description:
     "Get a quote for PC, ABS or PBT granules. E-64 & 51, Mangolpuri Industrial Area, Phase-II, Delhi-110034 · +91 98180 58610.",

@@ -24,7 +24,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL("https://www.shriganeshpolymer.in"),
+  metadataBase: new URL("https://shriganeshpolymer.in"),
   verification: { google: "zX0u3BIOV16--Bh-T0pZ-OFcnXbHvUHrLMSKw7_IT1M" },
   title: {
     default: "shri Ganesh Polymer | Engineering Polymers – PC, ABS, PBT",

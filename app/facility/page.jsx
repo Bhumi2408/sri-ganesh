@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import FacilityPage from "@/components/FacilityPage";
 
 export const metadata = {
+  alternates: { canonical: "/facility/" },
   title: "Facility",
   description:
     "Twin and single screw extrusion lines with an in-house polymer testing lab — 5000+ MT annual production capacity.",

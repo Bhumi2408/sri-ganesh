@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import ExhibitionPage from "@/components/ExhibitionPage";
 
 export const metadata = {
+  alternates: { canonical: "/exhibition/" },
   title: "Exhibition",
   description:
     "Shri Ganesh Polymer at industry exhibitions — booth photos and videos showcasing our PC, ABS and PBT granules.",

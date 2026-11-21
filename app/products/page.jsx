@@ -2,6 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import ProductsPage from "@/components/ProductsPage";
 
 export const metadata = {
+  alternates: { canonical: "/products/" },
   title: "Products",
   description:
     "PC, ABS and PBT engineering polymer granules — FR and extrusion grades, glass-filled PBT and custom colours for electrical, lighting and automotive parts.",

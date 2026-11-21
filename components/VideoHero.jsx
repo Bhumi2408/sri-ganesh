@@ -131,7 +131,7 @@ export default function VideoHero() {
             {...up(0.25)}
             className="mt-0 hidden text-[clamp(1.45rem,6.6vw,1.9rem)] sm:block font-semibold leading-[1.2] tracking-[-0.01em] sm:whitespace-normal sm:leading-[1.08] sm:tracking-[-0.03em] text-[#0b1530] sm:mt-6 sm:text-[2.6rem] sm:font-semibold sm:tracking-[-0.02em] lg:mt-[1.6vw] lg:whitespace-nowrap lg:text-[3.3vw] lg:leading-[1.12]"
           >
-            Engineering Polymer Manufacturer
+            Engineering Polymer Manufacturer{" "}
             <br />
             in Delhi,{" "}
             <span className="bg-gradient-to-r from-[#1e5eff] via-[#0e8fb8] to-[#3f9a1f] bg-clip-text text-transparent">
