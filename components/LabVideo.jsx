@@ -100,14 +100,15 @@ export default function LabVideo() {
             </Reveal>
             <Reveal i={1}>
               <h2 className="mt-5 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                Tested in-house,{" "}
-                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">batch after batch.</span>
+                Tested In-House,{" "}
+                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">Batch After Batch</span>
               </h2>
             </Reveal>
             <Reveal i={2}>
               <p className="mt-4 leading-relaxed text-slate-600">
-                Watch a sample travel through our polymer testing lab — from colour trial to impact, flow and tensile
-                tests — before the granules are cleared for dispatch.
+                Watch a sample travel through our testing lab, from colour trial to impact, melt flow and tensile tests,
+                before the granules are cleared for dispatch. Our lab runs 8 test instruments to keep every lot
+                consistent.
               </p>
             </Reveal>
           </div>

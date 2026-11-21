@@ -37,27 +37,28 @@ export default function PcColours() {
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#1e5eff]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1e5eff]">Polycarbonate · PC</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#1e5eff]">Custom colours</span>
             </div>
           </Reveal>
           <Reveal i={1}>
             <h2 className="mt-5 font-display text-3xl font-semibold leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
-              One polymer. Every{" "}
-              {/* only "colour" is multi-coloured — one letter per shade from the swatches */}
-              <span aria-label="colour">
-                {["#e1141b", "#ff6a00", "#a4cf2c", "#0f8f86", "#1f3fcf", "#ff4a12"].map((c, i) => (
+              Every{" "}
+              {/* only "Shade" is multi-coloured — one letter per shade from the swatches */}
+              <span aria-label="Shade">
+                {["#e1141b", "#ff6a00", "#a4cf2c", "#0f8f86", "#1f3fcf"].map((c, i) => (
                   <span key={i} aria-hidden="true" style={{ color: c }}>
-                    {"colour"[i]}
+                    {"Shade"[i]}
                   </span>
                 ))}
               </span>{" "}
-              you need.
+              Matched in Our Lab
             </h2>
           </Reveal>
           <Reveal i={2}>
             <p className="mt-5 max-w-xl leading-relaxed text-slate-600">
-              Our PC granules are compounded in natural and custom shades — tough, heat-stable and true to colour from
-              the first batch to the last. Share a sample or a shade code and our lab will match it.
+              Our PC, ABS and PBT granules are compounded in natural and custom colours. Share a sample or a shade
+              code and our lab will match it, so your moulded parts stay true to colour from the first batch to the
+              last.
             </p>
           </Reveal>
           </div>

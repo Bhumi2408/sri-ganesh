@@ -10,9 +10,9 @@ import {
 const PackagingSection = () => {
   const features = [
     "Premium quality packaging",
-    "Custom branding & labeling",
+    "Custom branding and labelling",
     "Multiple polymer grade options",
-    "Strong and durable packaging design",
+    "Strong and durable design",
   ];
 
   return (
@@ -44,10 +44,8 @@ const PackagingSection = () => {
 
             {/* Description */}
             <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg">
-              Our packaging solutions are designed to protect polymer
-              materials while providing a professional and consistent brand
-              identity. Every package combines durability, functionality and
-              premium presentation.
+              Our packaging protects your granules during transport and storage,
+              while giving a professional and consistent brand identity.
             </p>
             </div>
 

@@ -78,12 +78,12 @@ export default function Transformation() {
           </Reveal>
           <Reveal i={1}>
             <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight text-[#0b1530] sm:text-4xl lg:text-5xl">
-              From granule to{" "}
-              <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">finished part.</span>
+              From Granule to{" "}
+              <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">Finished Part</span>
             </h2>
           </Reveal>
           <Reveal i={2}>
-            <p className="mt-4 leading-relaxed text-slate-600">Drag the slider to see what our PC, ABS and PBT granules become.</p>
+            <p className="mt-4 leading-relaxed text-slate-600">Drag the slider to see what our granules become: LED panels, meter boxes, gang boxes, set-top boxes, MCB housings and lamp holders.</p>
           </Reveal>
         </div>
 

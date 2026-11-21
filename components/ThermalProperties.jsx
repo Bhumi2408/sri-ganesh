@@ -308,14 +308,15 @@ export default function ThermalProperties() {
             </Reveal>
             <Reveal i={1}>
               <h2 id="thermal-title" className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                Thermal properties of{" "}
-                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">polymers.</span>
+                Thermal Properties of{" "}
+                <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">Engineering Polymers</span>
               </h2>
             </Reveal>
             <Reveal i={2}>
               <p className="mt-5 leading-relaxed text-slate-600">
-                How PC, ABS and PBT hold up under heat — from long-term service to the moulding window — so you can
-                match the granule to your part&apos;s working temperature.
+                Every engineering polymer behaves differently under heat. Compare PC, ABS and PBT on heat deflection
+                temperature, Vicat softening point, continuous-use temperature and processing window, then match the
+                granule to your part&apos;s working temperature.
               </p>
             </Reveal>
           </div>

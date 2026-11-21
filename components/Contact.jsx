@@ -56,11 +56,11 @@ export default function Contact() {
                   <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[#7cc242]">Contact</span>
                 </div>
                 <h2 className="mt-5 font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
-                  Let&apos;s build something{" "}
-                  <span className="font-normal text-[#8be04e]">durable.</span>
+                  Let&apos;s Build Something{" "}
+                  <span className="font-normal text-[#8be04e]">Durable</span>
                 </h2>
                 <p className="mt-4 max-w-sm leading-relaxed text-blue-100/80">
-                  Tell us your grade, volume and application — our team will get back with the right compound.
+                  Tell us your grade, volume and application, and our team will get back to you with the right compound.
                 </p>
 
                 <ul className="mt-9 space-y-3">

@@ -6,6 +6,14 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./ui";
 import { products } from "@/lib/products";
 
+// home-page blurbs (SEO copy) — the product pages carry the long versions
+const blurbs = {
+  PC: "High impact strength, heat stability and excellent transparency. Available in standard, flame retardant (FR) and extrusion grades. Used in LED panels, downlights, modular switches, meter boxes and chargers.",
+  ABS: "Easy to process, with a good surface finish. Ideal for custom colours and high-volume injection moulding. Used in modular gang boxes, set-top boxes and consumer electronics.",
+  PBT: "Stiff, heat resistant and electrically reliable. Best for MCB housings, lamp holders and parts near hot contacts.",
+};
+const titles = { PC: "PC – Polycarbonate", ABS: "ABS – Acrylonitrile Butadiene Styrene", PBT: "PBT – Glass Filled" };
+
 function ProductCard({ p, hidden = false }) {
   return (
     <Link
@@ -34,21 +42,21 @@ function ProductCard({ p, hidden = false }) {
         </span>
       </div>
 
-      {/* name */}
-      <div className="flex items-center justify-between gap-3 px-6 py-5">
-        <div className="flex items-center gap-2.5">
-          <span className="h-2 w-2 rounded-full" style={{ background: p.accent }} />
-          <h3 className="text-lg font-semibold text-slate-900">
-            <span className="font-display text-xl md:hidden" style={{ color: p.accent }}>{p.code}</span>
-            <span className="hidden md:inline">{p.name}</span>
-          </h3>
+      {/* name + blurb */}
+      <div className="flex flex-1 flex-col px-5 py-5 sm:px-6">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-2.5">
+            <span className="mt-2 h-2 w-2 shrink-0 rounded-full" style={{ background: p.accent }} />
+            <h3 className="text-base font-semibold leading-snug text-slate-900 md:text-lg">{titles[p.code] || p.name}</h3>
+          </div>
+          <span
+            className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-white transition-transform duration-300 group-hover:rotate-45"
+            style={{ background: p.accent }}
+          >
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
         </div>
-        <span
-          className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-white transition-transform duration-300 group-hover:rotate-45"
-          style={{ background: p.accent }}
-        >
-          <ArrowUpRight className="h-4 w-4" />
-        </span>
+        {blurbs[p.code] && <p className="mt-3 text-sm leading-relaxed text-slate-500">{blurbs[p.code]}</p>}
       </div>
     </Link>
   );
@@ -135,7 +143,7 @@ export default function Products() {
           </Reveal>
           <Reveal i={1}>
             <h2 className="mt-3 whitespace-nowrap font-display text-[clamp(11px,3.5vw,14px)] font-normal leading-snug text-[#0b1530] md:mt-5 md:whitespace-normal md:text-4xl md:font-medium md:leading-tight md:tracking-tight">
-              Engineering granules for every application.
+              Engineering Polymer Granules for Every Application
             </h2>
           </Reveal>
         </div>

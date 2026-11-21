@@ -1,5 +1,5 @@
 "use client";
-import { FlaskConical, Palette, Truck, Handshake, Layers, Lightbulb, Plug, Gauge, Smartphone } from "lucide-react";
+import { FlaskConical, Palette, Truck, Handshake, Layers, Lightbulb, Plug, Gauge, Smartphone, Car } from "lucide-react";
 import { Reveal } from "./ui";
 import PolymerMap from "./PolymerMap";
 
@@ -16,6 +16,7 @@ const industries = [
   { icon: Plug, label: "Electrical" },
   { icon: Gauge, label: "Meters" },
   { icon: Smartphone, label: "Consumer Electronics" },
+  { icon: Car, label: "Automotive" },
 ];
 
 export default function PanIndia() {
@@ -29,8 +30,12 @@ export default function PanIndia() {
               <div className="lg:col-start-2 lg:row-start-1 lg:self-end">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#8be04e]">Pan-India reach</p>
                 <h2 className="mt-4 font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
-                  Compounded in Delhi, <span className="text-[#60a5fa]">delivered across India.</span>
+                  Compounded in Delhi, <span className="text-[#60a5fa]">Delivered Across India</span>
                 </h2>
+                <p className="mt-4 max-w-md leading-relaxed text-blue-100/75">
+                  Our granules reach industrial clients and distributors in every state through a strong pan-India
+                  supply network.
+                </p>
                 <span className="mt-5 block h-0.5 w-16 bg-[#60a5fa]" />
               </div>
 
@@ -62,9 +67,9 @@ export default function PanIndia() {
             </div>
 
             {/* ---------- industries ---------- */}
-            <ul className="mt-10 grid grid-cols-2 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-4 sm:divide-x sm:divide-white/10">
+            <ul className="mt-10 flex flex-wrap justify-center gap-y-6 border-t border-white/10 pt-8 sm:flex-nowrap sm:divide-x sm:divide-white/10">
               {industries.map((ind) => (
-                <li key={ind.label} className="flex flex-col items-center gap-2 text-center">
+                <li key={ind.label} className="flex basis-1/3 flex-col items-center gap-2 px-2 text-center sm:flex-1 sm:basis-0">
                   <ind.icon className="h-7 w-7 text-blue-100/80" strokeWidth={1.5} />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-100/80">{ind.label}</span>
                 </li>

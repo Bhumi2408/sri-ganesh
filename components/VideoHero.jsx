@@ -123,7 +123,7 @@ export default function VideoHero() {
             className="hidden items-center gap-2.5 rounded-full border border-[#7cc242]/60 bg-[linear-gradient(90deg,rgba(76,175,39,.28),rgba(255,255,255,.06))] whitespace-nowrap text-[13px] font-medium uppercase tracking-[0.04em] text-[#0b1530] sm:inline-flex sm:py-1.5 sm:pl-2 sm:pr-3 sm:text-[13px] sm:tracking-[0.04em] lg:h-[max(2.6vw,34px)] lg:gap-[0.9vw] lg:pl-[0.9vw] lg:pr-[1.1vw] lg:text-[max(0.8vw,11px)]"
           >
             <ShieldCheck className="h-5 w-5 fill-[#5cc23a] sm:h-6 sm:w-6 text-[#0b1f3f] lg:h-[1.6vw] lg:w-[1.6vw]" strokeWidth={2} />
-            ISO 9001 &amp; 14001 certified manufacturer
+            ISO 9001 &amp; 14001 certified <span className="text-slate-400">|</span> Compounding in Delhi
             <ChevronRight className="h-3.5 w-3.5 text-slate-500 lg:h-[1vw] lg:w-[1vw]" />
           </motion.div>
 
@@ -131,16 +131,17 @@ export default function VideoHero() {
             {...up(0.25)}
             className="mt-0 hidden text-[clamp(1.45rem,6.6vw,1.9rem)] sm:block font-semibold leading-[1.2] tracking-[-0.01em] sm:whitespace-normal sm:leading-[1.08] sm:tracking-[-0.03em] text-[#0b1530] sm:mt-6 sm:text-[2.6rem] sm:font-semibold sm:tracking-[-0.02em] lg:mt-[1.6vw] lg:whitespace-nowrap lg:text-[3.3vw] lg:leading-[1.12]"
           >
-            Engineering Polymers,
+            Engineering Polymer Manufacturer
             <br />
+            in Delhi,{" "}
             <span className="bg-gradient-to-r from-[#1e5eff] via-[#0e8fb8] to-[#3f9a1f] bg-clip-text text-transparent">
               Built to Last.
             </span>
           </motion.h1>
 
           <motion.p {...up(0.35)} className="mx-auto mt-3 hidden max-w-[40rem] sm:block sm:mx-0 text-[14.5px] leading-relaxed text-slate-700 sm:mt-5 sm:text-[1.3rem] sm:leading-[1.4] lg:mt-[1.5vw] lg:max-w-[max(36vw,420px)] lg:text-[max(1.3vw,16px)] lg:leading-[1.3]">
-            Premium PC, ABS &amp; PBT granules for India&apos;s leading manufacturers. Consistent quality. Reliable
-            supply. Stronger products for a better tomorrow.
+            Premium PC, ABS and PBT granules for India&apos;s leading lighting, electrical and automotive
+            manufacturers. Consistent quality, reliable supply and stronger products for a better tomorrow.
           </motion.p>
 
           <motion.div {...up(0.45)} className="mt-0 flex justify-center sm:mt-6 sm:justify-start flex-wrap items-center gap-2 sm:gap-2.5 lg:mt-[1.3vw] lg:gap-[0.75vw]">
@@ -160,7 +161,7 @@ export default function VideoHero() {
               href="/products"
               className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-[#06122e] py-1.5 pl-4 pr-1.5 text-sm font-semibold text-white sm:gap-4 sm:py-2 sm:pl-7 sm:pr-2 sm:text-base shadow-lg shadow-[#06122e]/20 transition hover:bg-[#0b1d45] sm:text-lg lg:h-[max(4vw,50px)] lg:gap-[1.1vw] lg:py-0 lg:pl-[2vw] lg:pr-[0.55vw] lg:text-[max(1.15vw,15px)]"
             >
-              Explore products
+              Explore Products
               <span className="grid h-8 w-8 place-items-center rounded-full bg-[#8be04e] sm:h-10 sm:w-10 text-[#06122e] transition-transform duration-300 group-hover:rotate-45 sm:h-11 sm:w-11 lg:h-[max(2.85vw,38px)] lg:w-[max(2.85vw,38px)]">
                 <ArrowUpRight className="h-4 w-4 lg:h-[1.2vw] lg:w-[1.2vw]" />
               </span>
@@ -173,7 +174,7 @@ export default function VideoHero() {
               }}
               className="group inline-flex items-center gap-2 rounded-full border border-[#0b1530]/30 bg-white/70 px-4 py-3 text-sm font-semibold text-[#0b1530] transition hover:border-[#0b1530] hover:bg-white sm:gap-4 sm:px-8 sm:py-4 sm:text-lg lg:h-[max(4vw,50px)] lg:gap-[1.1vw] lg:px-[2.3vw] lg:py-0 lg:text-[max(1.15vw,15px)]"
             >
-              Get a quote
+              Get a Quote
               <ArrowRight className="hidden h-4 w-4 sm:block lg:h-[1.2vw] lg:w-[1.2vw] transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </motion.div>

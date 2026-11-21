@@ -3,14 +3,14 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, Phone, MapPin, Cog, BadgeCheck, Truck, Clock } from "lucide-react";
+import { ArrowUpRight, Phone, MapPin, Cog, FlaskConical, ClipboardCheck, Layers } from "lucide-react";
 import { Reveal } from "./ui";
 
 const pillars = [
-  { icon: Cog, title: "Modern machinery", text: "Latest extrusion lines that speed up production and minimise errors." },
-  { icon: BadgeCheck, title: "Quality at fair price", text: "High on quality, sensible on cost — batch after batch." },
-  { icon: Truck, title: "Nationwide network", text: "A large distribution network spread across India." },
-  { icon: Clock, title: "On-time delivery", text: "Experts and processes built to meet demand on schedule." },
+  { icon: Layers, title: "Three core polymers", text: "Polycarbonate (PC), ABS and PBT, compounded and supplied by us." },
+  { icon: Cog, title: "Twin & single screw extrusion", text: "Compounding lines built for consistent, repeatable output." },
+  { icon: FlaskConical, title: "In-house testing lab", text: "Every lot is tested before it is cleared for dispatch." },
+  { icon: ClipboardCheck, title: "Strict batch checks", text: "Granules that perform the same way in your moulding machine." },
 ];
 
 const SEAL = "SHRI GANESH POLYMER • PREMIUM POLYMER • ";
@@ -37,9 +37,9 @@ export default function About() {
 
           <Reveal i={1}>
             <h2 className="mt-5 max-w-xl font-display text-[1.85rem] font-medium leading-[1.15] tracking-tight text-[#0b1530] md:text-4xl">
-              Polymers{" "}
-              <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text font-normal text-transparent">crafted</span>{" "}
-              with precision.
+              Your Trusted{" "}
+              <span className="bg-gradient-to-r from-[#1e5eff] to-[#4caf27] bg-clip-text text-transparent">Engineering Polymer</span>{" "}
+              Manufacturer in Delhi
             </h2>
           </Reveal>
         </div>
@@ -115,9 +115,14 @@ export default function About() {
         <div className="lg:col-start-2 lg:row-start-2">
           <Reveal i={2}>
             <p className="max-w-xl text-base leading-relaxed lg:mt-6 text-slate-600 sm:text-lg">
-              An innovative business approach lets Shri Ganesh Polymer run its operations exceptionally well and
-              makes us a reliable manufacturer of PC, ABS and PBT granules — supplied for LEDs, switches, meters,
-              sheets, automotive and mobile accessories.
+              Engineering polymers are high-performance plastics made for parts that must handle heat, impact, load and
+              electrical stress. At Shri Ganesh Polymer, we compound and supply three core engineering polymers:
+              Polycarbonate (PC), Acrylonitrile Butadiene Styrene (ABS) and Polybutylene Terephthalate (PBT).
+            </p>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+              With twin and single screw extrusion, an in-house testing lab and strict batch checks, every lot of our
+              granules performs the same way in your moulding machine. From LED panels and meter boxes to MCB housings
+              and set-top boxes, our materials help you make stronger, safer and better-looking products.
             </p>
           </Reveal>
 
