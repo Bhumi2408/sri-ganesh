@@ -194,7 +194,7 @@ export default function AbsContent({ p }) {
                 <Eyebrow>Quality</Eyebrow>
                 <Heading className="mt-5 sm:text-3xl">{c.quality.title}</Heading>
                 {c.quality.paras.map((t) => (
-                  <P key={t.slice(0, 24)} className="mt-4">{t}</P>
+                  <P key={t.slice(0, 24)} className="mt-4"><Rich text={t} /></P>
                 ))}
               </div>
             </Reveal>

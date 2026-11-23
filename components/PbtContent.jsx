@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Check, CircleCheck, Mail, MapPin, MessageCircle, Phone, Plus } from "lucide-react";
 import { Reveal } from "./ui";
+import Rich from "./Rich";
 
 function Eyebrow({ children, light = false }) {
   return (
@@ -239,7 +240,7 @@ export default function PbtContent({ p }) {
               <div aria-hidden="true" className="absolute -bottom-16 -right-16 h-56 w-56 rounded-full opacity-30 blur-3xl" style={{ background: accent }} />
               <div className="relative">
                 <h2 className="font-display text-3xl font-medium leading-tight tracking-tight">{c.quote.title}</h2>
-                <p className="mt-4 leading-relaxed text-blue-100/80">{c.quote.text}</p>
+                <p className="mt-4 leading-relaxed text-blue-100/80 [&_a]:text-[#8be04e] [&_a:hover]:text-white"><Rich text={c.quote.text} /></p>
                 <ul className="mt-6 space-y-3 text-blue-100/90">
                   <li className="flex items-start gap-3">
                     <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#8be04e]" />
