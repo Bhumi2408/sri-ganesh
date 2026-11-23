@@ -4,6 +4,9 @@ import Link from "next/link";
 import { ArrowUpRight, Check, ChevronRight, Phone } from "lucide-react";
 import { Reveal } from "./ui";
 import ProductContent from "./ProductContent";
+import AbsContent from "./AbsContent";
+import PbtContent from "./PbtContent";
+import Rich from "./Rich";
 import { products } from "@/lib/products";
 
 function Eyebrow({ children }) {
@@ -85,8 +88,8 @@ export default function ProductDetail({ slug }) {
                 </h1>
               </Reveal>
               <Reveal i={2}>
-                {(p.content ? [p.content.intro] : p.long).map((t) => (
-                  <p key={t.slice(0, 20)} className="mt-5 leading-relaxed text-slate-600">{t}</p>
+                {(p.content ? [].concat(p.content.intro) : p.long).map((t) => (
+                  <p key={t.slice(0, 20)} className="mt-5 leading-relaxed text-slate-600"><Rich text={t} /></p>
                 ))}
               </Reveal>
               <Reveal i={3}>
@@ -203,7 +206,7 @@ export default function ProductDetail({ slug }) {
 
       {p.content && (
         <>
-          <ProductContent p={p} />
+          {p.content.layout === "abs" ? <AbsContent p={p} /> : p.content.layout === "pbt" ? <PbtContent p={p} /> : <ProductContent p={p} />}
           <section className="relative bg-white pb-16 sm:pb-24">
             <div className="mx-auto max-w-7xl px-5">{quoteTile("")}</div>
           </section>
